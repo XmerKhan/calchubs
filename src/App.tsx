@@ -8,6 +8,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import CategoryPage from "./pages/CategoryPage";
 import BMICalculator from "./pages/calculators/BMICalculator";
 import EMICalculator from "./pages/calculators/EMICalculator";
 import CalorieCalculator from "./pages/calculators/CalorieCalculator";
@@ -55,6 +56,7 @@ const App = () => {
             <Layout isDark={isDark} toggleTheme={toggleTheme}>
               <Routes>
                 <Route path="/" element={<Index />} />
+                <Route path="/:categorySlug" element={<CategoryPage />} />
                 <Route path="/bmi-calculator" element={<BMICalculator />} />
                 <Route path="/emi-calculator" element={<EMICalculator />} />
                 <Route path="/calorie-calculator" element={<CalorieCalculator />} />

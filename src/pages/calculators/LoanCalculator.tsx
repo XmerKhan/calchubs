@@ -81,7 +81,10 @@ const LoanCalculator = () => {
     <CalculatorLayout
       title="Loan Calculator"
       description="Calculate monthly payments, total interest, and amortization schedule for any loan."
-      breadcrumbs={[{ label: 'Loan Calculator' }]}
+      breadcrumbs={[
+        { label: 'Finance Calculators', href: '/finance-calculators' },
+        { label: 'Loan Calculator' }
+      ]}
     >
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">

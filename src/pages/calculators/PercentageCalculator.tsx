@@ -83,7 +83,10 @@ const PercentageCalculator = () => {
     <CalculatorLayout
       title="Percentage Calculator"
       description="Calculate percentages quickly and accurately for any scenario - discounts, tips, increases, and more."
-      breadcrumbs={[{ label: 'Percentage Calculator' }]}
+      breadcrumbs={[
+        { label: 'Math Calculators', href: '/math-calculators' },
+        { label: 'Percentage Calculator' }
+      ]}
     >
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">

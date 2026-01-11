@@ -2,20 +2,16 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Calculator, Menu, Moon, Sun, X } from 'lucide-react';
+import { Calculator, Menu, Moon, Sun, ChevronDown } from 'lucide-react';
+import { categories } from '@/data/calculatorCategories';
 
 interface HeaderProps {
   isDark: boolean;
   toggleTheme: () => void;
 }
 
-const navLinks = [
+const mainNavLinks = [
   { href: '/', label: 'Home' },
-  { href: '/bmi-calculator', label: 'BMI' },
-  { href: '/emi-calculator', label: 'EMI' },
-  { href: '/loan-calculator', label: 'Loan' },
-  { href: '/calorie-calculator', label: 'Calorie' },
-  { href: '/percentage-calculator', label: 'Percentage' },
 ];
 
 export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
@@ -32,14 +28,23 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
+        <nav className="hidden lg:flex items-center gap-1">
+          {mainNavLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
               className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
             >
               {link.label}
+            </Link>
+          ))}
+          {categories.map((category) => (
+            <Link
+              key={category.id}
+              to={category.href}
+              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+            >
+              {category.title.replace(' Calculators', '')}
             </Link>
           ))}
         </nav>
@@ -60,23 +65,37 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild className="lg:hidden">
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background">
-              <div className="flex flex-col gap-4 mt-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    to={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
+              <div className="flex flex-col gap-2 mt-6">
+                <Link
+                  to="/"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
+                >
+                  Home
+                </Link>
+                <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  Categories
+                </div>
+                {categories.map((category) => {
+                  const Icon = category.icon;
+                  return (
+                    <Link
+                      key={category.id}
+                      to={category.href}
+                      onClick={() => setIsOpen(false)}
+                      className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
+                    >
+                      <Icon className="w-4 h-4 text-primary" />
+                      {category.title}
+                    </Link>
+                  );
+                })}
               </div>
             </SheetContent>
           </Sheet>
