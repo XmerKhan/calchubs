@@ -61,7 +61,10 @@ const EMICalculator = () => {
     <CalculatorLayout
       title="EMI Calculator"
       description="Calculate your Equated Monthly Installment for loans with interest breakdown."
-      breadcrumbs={[{ label: 'EMI Calculator' }]}
+      breadcrumbs={[
+        { label: 'Finance Calculators', href: '/finance-calculators' },
+        { label: 'EMI Calculator' }
+      ]}
     >
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">

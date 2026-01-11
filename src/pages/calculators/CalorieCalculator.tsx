@@ -89,7 +89,10 @@ const CalorieCalculator = () => {
     <CalculatorLayout
       title="Calorie Calculator"
       description="Calculate your daily calorie needs based on your age, gender, activity level, and fitness goals."
-      breadcrumbs={[{ label: 'Calorie Calculator' }]}
+      breadcrumbs={[
+        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Calorie Calculator' }
+      ]}
     >
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">

@@ -65,7 +65,10 @@ const BMICalculator = () => {
     <CalculatorLayout
       title="BMI Calculator"
       description="Calculate your Body Mass Index to understand if you are at a healthy weight for your height."
-      breadcrumbs={[{ label: 'BMI Calculator' }]}
+      breadcrumbs={[
+        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'BMI Calculator' }
+      ]}
     >
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
