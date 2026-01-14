@@ -69,7 +69,7 @@ const BMRCalculator = () => {
       title="BMR Calculator"
       description="Calculate your Basal Metabolic Rate using the Mifflin-St Jeor equation to understand your daily calorie needs at rest."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'BMR Calculator' }
       ]}
     >
@@ -217,9 +217,9 @@ const BMRCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'TDEE Calculator', href: '/tdee-calculator' },
-              { title: 'Calorie Calculator', href: '/calorie-calculator' },
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
+              { title: 'TDEE Calculator', href: '/health-fitness/tdee-calculator' },
+              { title: 'Calorie Calculator', href: '/health-fitness/calorie-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
             ]}
           />
         </div>

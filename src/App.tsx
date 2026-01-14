@@ -9,11 +9,24 @@ import { Layout } from "@/components/layout/Layout";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import CategoryPage from "./pages/CategoryPage";
+
+// Health & Fitness Calculators
 import BMICalculator from "./pages/calculators/BMICalculator";
-import EMICalculator from "./pages/calculators/EMICalculator";
+import BMRCalculator from "./pages/calculators/BMRCalculator";
 import CalorieCalculator from "./pages/calculators/CalorieCalculator";
+import IdealWeightCalculator from "./pages/calculators/IdealWeightCalculator";
+import BodyFatCalculator from "./pages/calculators/BodyFatCalculator";
+import WaterIntakeCalculator from "./pages/calculators/WaterIntakeCalculator";
+import TDEECalculator from "./pages/calculators/TDEECalculator";
+
+// Finance Calculators
+import EMICalculator from "./pages/calculators/EMICalculator";
 import LoanCalculator from "./pages/calculators/LoanCalculator";
+
+// Math Calculators
 import PercentageCalculator from "./pages/calculators/PercentageCalculator";
+
+// Static Pages
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -55,13 +68,33 @@ const App = () => {
           <BrowserRouter>
             <Layout isDark={isDark} toggleTheme={toggleTheme}>
               <Routes>
+                {/* Home */}
                 <Route path="/" element={<Index />} />
-                <Route path="/:categorySlug" element={<CategoryPage />} />
-                <Route path="/bmi-calculator" element={<BMICalculator />} />
-                <Route path="/emi-calculator" element={<EMICalculator />} />
-                <Route path="/calorie-calculator" element={<CalorieCalculator />} />
-                <Route path="/loan-calculator" element={<LoanCalculator />} />
-                <Route path="/percentage-calculator" element={<PercentageCalculator />} />
+
+                {/* Category Pages */}
+                <Route path="/finance" element={<CategoryPage />} />
+                <Route path="/math" element={<CategoryPage />} />
+                <Route path="/health-fitness" element={<CategoryPage />} />
+                <Route path="/daily-routine" element={<CategoryPage />} />
+                <Route path="/advanced" element={<CategoryPage />} />
+
+                {/* Health & Fitness Calculator Routes */}
+                <Route path="/health-fitness/bmi-calculator" element={<BMICalculator />} />
+                <Route path="/health-fitness/bmr-calculator" element={<BMRCalculator />} />
+                <Route path="/health-fitness/calorie-calculator" element={<CalorieCalculator />} />
+                <Route path="/health-fitness/ideal-weight-calculator" element={<IdealWeightCalculator />} />
+                <Route path="/health-fitness/body-fat-calculator" element={<BodyFatCalculator />} />
+                <Route path="/health-fitness/water-intake-calculator" element={<WaterIntakeCalculator />} />
+                <Route path="/health-fitness/tdee-calculator" element={<TDEECalculator />} />
+
+                {/* Finance Calculator Routes */}
+                <Route path="/finance/emi-calculator" element={<EMICalculator />} />
+                <Route path="/finance/loan-calculator" element={<LoanCalculator />} />
+
+                {/* Math Calculator Routes */}
+                <Route path="/math/percentage-calculator" element={<PercentageCalculator />} />
+
+                {/* Static Pages */}
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -69,6 +102,8 @@ const App = () => {
                 <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/adsense-info" element={<AdSenseInfo />} />
+
+                {/* 404 */}
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>

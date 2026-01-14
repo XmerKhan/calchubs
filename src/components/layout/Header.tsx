@@ -2,17 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Calculator, Menu, Moon, Sun, ChevronDown } from 'lucide-react';
+import { Calculator, Menu, Moon, Sun } from 'lucide-react';
 import { categories } from '@/data/calculatorCategories';
 
 interface HeaderProps {
   isDark: boolean;
   toggleTheme: () => void;
 }
-
-const mainNavLinks = [
-  { href: '/', label: 'Home' },
-];
 
 export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,15 +25,12 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-1">
-          {mainNavLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-            >
-              {link.label}
-            </Link>
-          ))}
+          <Link
+            to="/"
+            className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+          >
+            Home
+          </Link>
           {categories.map((category) => (
             <Link
               key={category.id}

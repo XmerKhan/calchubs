@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const slides = [
-  { id: 1, title: 'BMI Calculator', description: 'Calculate your Body Mass Index and understand your health status instantly.', icon: Activity, href: '/bmi-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 2, title: 'EMI Calculator', description: 'Plan your loans better with accurate monthly payment calculations.', icon: Wallet, href: '/emi-calculator', gradient: 'from-accent/10 to-accent/5' },
-  { id: 3, title: 'Loan Calculator', description: 'Calculate total interest and payment schedules for any loan type.', icon: CreditCard, href: '/loan-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 4, title: 'Calorie Calculator', description: 'Find your daily caloric needs based on your goals and activity level.', icon: Flame, href: '/calorie-calculator', gradient: 'from-destructive/10 to-destructive/5' },
-  { id: 5, title: 'Percentage Calculator', description: 'Quick and easy percentage calculations for any scenario.', icon: Percent, href: '/percentage-calculator', gradient: 'from-accent/10 to-accent/5' },
-  { id: 6, title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/age-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 7, title: 'Compound Interest', description: 'See how your money grows with compound interest over time.', icon: LineChart, href: '/compound-interest-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 1, title: 'BMI Calculator', description: 'Calculate your Body Mass Index and understand your health status instantly.', icon: Activity, href: '/health-fitness/bmi-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 2, title: 'EMI Calculator', description: 'Plan your loans better with accurate monthly payment calculations.', icon: Wallet, href: '/finance/emi-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 3, title: 'Loan Calculator', description: 'Calculate total interest and payment schedules for any loan type.', icon: CreditCard, href: '/finance/loan-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 4, title: 'Calorie Calculator', description: 'Find your daily caloric needs based on your goals and activity level.', icon: Flame, href: '/health-fitness/calorie-calculator', gradient: 'from-destructive/10 to-destructive/5' },
+  { id: 5, title: 'Percentage Calculator', description: 'Quick and easy percentage calculations for any scenario.', icon: Percent, href: '/math/percentage-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 6, title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/daily-routine/age-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 7, title: 'Compound Interest', description: 'See how your money grows with compound interest over time.', icon: LineChart, href: '/finance/compound-interest-calculator', gradient: 'from-accent/10 to-accent/5' },
 ];
 
 export const HeroSlider = () => {
@@ -45,6 +46,11 @@ export const HeroSlider = () => {
       <div className="container relative">
         <div className="max-w-3xl mx-auto text-center">
           <div className="animate-fade-in" key={slide.id}>
+            <Badge variant="secondary" className="mb-4 inline-flex items-center gap-1">
+              <Star className="w-3 h-3" />
+              Popular Calculator
+            </Badge>
+            
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6">
               <Icon className="w-8 h-8 text-primary" />
             </div>

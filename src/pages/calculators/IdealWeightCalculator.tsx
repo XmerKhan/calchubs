@@ -88,7 +88,7 @@ const IdealWeightCalculator = () => {
       title="Ideal Weight Calculator"
       description="Calculate your ideal body weight using multiple scientific formulas including Robinson, Miller, Devine, and Hamwi equations."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'Ideal Weight Calculator' }
       ]}
     >
@@ -215,9 +215,9 @@ const IdealWeightCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
-              { title: 'Body Fat Calculator', href: '/body-fat-calculator' },
-              { title: 'TDEE Calculator', href: '/tdee-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
+              { title: 'Body Fat Calculator', href: '/health-fitness/body-fat-calculator' },
+              { title: 'TDEE Calculator', href: '/health-fitness/tdee-calculator' },
             ]}
           />
         </div>
