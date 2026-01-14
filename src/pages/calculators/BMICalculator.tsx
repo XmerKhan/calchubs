@@ -66,7 +66,7 @@ const BMICalculator = () => {
       title="BMI Calculator"
       description="Calculate your Body Mass Index to understand if you are at a healthy weight for your height."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'BMI Calculator' }
       ]}
     >
@@ -182,8 +182,8 @@ const BMICalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'Calorie Calculator', href: '/calorie-calculator' },
-              { title: 'Percentage Calculator', href: '/percentage-calculator' },
+              { title: 'Calorie Calculator', href: '/health-fitness/calorie-calculator' },
+              { title: 'BMR Calculator', href: '/health-fitness/bmr-calculator' },
             ]}
           />
         </div>

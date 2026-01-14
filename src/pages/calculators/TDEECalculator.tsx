@@ -98,7 +98,7 @@ const TDEECalculator = () => {
       title="TDEE Calculator"
       description="Calculate your Total Daily Energy Expenditure to understand how many calories you burn per day including all activities."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'TDEE Calculator' }
       ]}
     >
@@ -292,9 +292,9 @@ const TDEECalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'BMR Calculator', href: '/bmr-calculator' },
-              { title: 'Calorie Calculator', href: '/calorie-calculator' },
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
+              { title: 'BMR Calculator', href: '/health-fitness/bmr-calculator' },
+              { title: 'Calorie Calculator', href: '/health-fitness/calorie-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
             ]}
           />
         </div>

@@ -62,7 +62,7 @@ const EMICalculator = () => {
       title="EMI Calculator"
       description="Calculate your Equated Monthly Installment for loans with interest breakdown."
       breadcrumbs={[
-        { label: 'Finance Calculators', href: '/finance-calculators' },
+        { label: 'Finance', href: '/finance' },
         { label: 'EMI Calculator' }
       ]}
     >
@@ -190,8 +190,8 @@ const EMICalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'Loan Calculator', href: '/loan-calculator' },
-              { title: 'Percentage Calculator', href: '/percentage-calculator' },
+              { title: 'Loan Calculator', href: '/finance/loan-calculator' },
+              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
             ]}
           />
         </div>

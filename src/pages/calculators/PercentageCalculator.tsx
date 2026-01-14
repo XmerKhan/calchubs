@@ -84,7 +84,7 @@ const PercentageCalculator = () => {
       title="Percentage Calculator"
       description="Calculate percentages quickly and accurately for any scenario - discounts, tips, increases, and more."
       breadcrumbs={[
-        { label: 'Math Calculators', href: '/math-calculators' },
+        { label: 'Math', href: '/math' },
         { label: 'Percentage Calculator' }
       ]}
     >
@@ -267,8 +267,8 @@ const PercentageCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'EMI Calculator', href: '/emi-calculator' },
-              { title: 'Loan Calculator', href: '/loan-calculator' },
+              { title: 'Average Calculator', href: '/math/average-calculator' },
+              { title: 'Discount Calculator', href: '/daily-routine/discount-calculator' },
             ]}
           />
         </div>

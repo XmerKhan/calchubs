@@ -99,7 +99,7 @@ const BodyFatCalculator = () => {
       title="Body Fat Percentage Calculator"
       description="Calculate your body fat percentage using the US Navy method with waist, neck, and hip measurements."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'Body Fat Calculator' }
       ]}
     >
@@ -260,9 +260,9 @@ const BodyFatCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
-              { title: 'Ideal Weight Calculator', href: '/ideal-weight-calculator' },
-              { title: 'Calorie Calculator', href: '/calorie-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
+              { title: 'Ideal Weight Calculator', href: '/health-fitness/ideal-weight-calculator' },
+              { title: 'Calorie Calculator', href: '/health-fitness/calorie-calculator' },
             ]}
           />
         </div>

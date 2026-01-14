@@ -71,7 +71,7 @@ const WaterIntakeCalculator = () => {
       title="Daily Water Intake Calculator"
       description="Calculate your recommended daily water intake based on your weight, activity level, and climate conditions."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'Water Intake Calculator' }
       ]}
     >
@@ -210,9 +210,9 @@ const WaterIntakeCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'Calorie Calculator', href: '/calorie-calculator' },
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
-              { title: 'TDEE Calculator', href: '/tdee-calculator' },
+              { title: 'Calorie Calculator', href: '/health-fitness/calorie-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
+              { title: 'TDEE Calculator', href: '/health-fitness/tdee-calculator' },
             ]}
           />
         </div>

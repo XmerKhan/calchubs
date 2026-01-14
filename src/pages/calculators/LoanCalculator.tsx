@@ -82,7 +82,7 @@ const LoanCalculator = () => {
       title="Loan Calculator"
       description="Calculate monthly payments, total interest, and amortization schedule for any loan."
       breadcrumbs={[
-        { label: 'Finance Calculators', href: '/finance-calculators' },
+        { label: 'Finance', href: '/finance' },
         { label: 'Loan Calculator' }
       ]}
     >
@@ -238,8 +238,8 @@ const LoanCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'EMI Calculator', href: '/emi-calculator' },
-              { title: 'Percentage Calculator', href: '/percentage-calculator' },
+              { title: 'EMI Calculator', href: '/finance/emi-calculator' },
+              { title: 'Mortgage Calculator', href: '/finance/mortgage-calculator' },
             ]}
           />
         </div>

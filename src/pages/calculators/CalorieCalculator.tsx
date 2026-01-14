@@ -90,7 +90,7 @@ const CalorieCalculator = () => {
       title="Calorie Calculator"
       description="Calculate your daily calorie needs based on your age, gender, activity level, and fitness goals."
       breadcrumbs={[
-        { label: 'Health & Fitness', href: '/health-fitness-calculators' },
+        { label: 'Health & Fitness', href: '/health-fitness' },
         { label: 'Calorie Calculator' }
       ]}
     >
@@ -264,8 +264,8 @@ const CalorieCalculator = () => {
               },
             ]}
             relatedCalculators={[
-              { title: 'BMI Calculator', href: '/bmi-calculator' },
-              { title: 'Percentage Calculator', href: '/percentage-calculator' },
+              { title: 'BMI Calculator', href: '/health-fitness/bmi-calculator' },
+              { title: 'TDEE Calculator', href: '/health-fitness/tdee-calculator' },
             ]}
           />
         </div>

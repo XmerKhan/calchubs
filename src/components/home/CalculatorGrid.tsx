@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ArrowRight } from 'lucide-react';
+import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ArrowRight, Star } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const calculators = [
-  { title: 'BMI Calculator', description: 'Calculate Body Mass Index to understand if you are at a healthy weight.', icon: Activity, href: '/bmi-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'EMI Calculator', description: 'Calculate monthly installments for your loans with interest breakdown.', icon: Wallet, href: '/emi-calculator', color: 'text-accent', bg: 'bg-accent/10' },
-  { title: 'Loan Calculator', description: 'Calculate total payments and interest for any loan type.', icon: CreditCard, href: '/loan-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'Calorie Calculator', description: 'Find your daily calorie needs based on your fitness goals.', icon: Flame, href: '/calorie-calculator', color: 'text-destructive', bg: 'bg-destructive/10' },
-  { title: 'Percentage Calculator', description: 'Quick percentage calculations for discounts, tips, and more.', icon: Percent, href: '/percentage-calculator', color: 'text-accent', bg: 'bg-accent/10' },
-  { title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/age-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'Compound Interest', description: 'See how your investments grow with compound interest.', icon: LineChart, href: '/compound-interest-calculator', color: 'text-accent', bg: 'bg-accent/10' },
+  { title: 'BMI Calculator', description: 'Calculate Body Mass Index to understand if you are at a healthy weight.', icon: Activity, href: '/health-fitness/bmi-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'EMI Calculator', description: 'Calculate monthly installments for your loans with interest breakdown.', icon: Wallet, href: '/finance/emi-calculator', color: 'text-accent', bg: 'bg-accent/10' },
+  { title: 'Loan Calculator', description: 'Calculate total payments and interest for any loan type.', icon: CreditCard, href: '/finance/loan-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'Calorie Calculator', description: 'Find your daily calorie needs based on your fitness goals.', icon: Flame, href: '/health-fitness/calorie-calculator', color: 'text-destructive', bg: 'bg-destructive/10' },
+  { title: 'Percentage Calculator', description: 'Quick percentage calculations for discounts, tips, and more.', icon: Percent, href: '/math/percentage-calculator', color: 'text-accent', bg: 'bg-accent/10' },
+  { title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/daily-routine/age-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'Compound Interest', description: 'See how your investments grow with compound interest.', icon: LineChart, href: '/finance/compound-interest-calculator', color: 'text-accent', bg: 'bg-accent/10' },
 ];
 
 export const CalculatorGrid = () => {
@@ -17,6 +18,10 @@ export const CalculatorGrid = () => {
     <section className="py-16 bg-secondary/30">
       <div className="container">
         <div className="text-center mb-12">
+          <Badge variant="secondary" className="mb-4 inline-flex items-center gap-1">
+            <Star className="w-3 h-3" />
+            Most Used
+          </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Popular Calculators
           </h2>

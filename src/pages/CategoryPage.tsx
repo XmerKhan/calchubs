@@ -1,13 +1,15 @@
-import { useParams, Link } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { ChevronRight, Home, ArrowRight } from 'lucide-react';
+import { ChevronRight, Home, ArrowRight, Star } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { getCategoryBySlug } from '@/data/calculatorCategories';
 
 const CategoryPage = () => {
-  const { categorySlug } = useParams<{ categorySlug: string }>();
-  const category = getCategoryBySlug(categorySlug || '');
+  const location = useLocation();
+  const slug = location.pathname.replace('/', '');
+  const category = getCategoryBySlug(slug);
 
   if (!category) {
     return (
@@ -28,8 +30,28 @@ const CategoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>{category.title} - CalcHub</title>
-        <meta name="description" content={category.description} />
+        <title>{category.title} - Free Online Tools | CalcHub</title>
+        <meta name="description" content={`${category.description} Use our free ${category.title.toLowerCase()} for accurate results.`} />
+        <meta name="keywords" content={`${category.title.toLowerCase()}, free calculators, online tools, ${category.calculators.map(c => c.title.toLowerCase()).join(', ')}`} />
+        <link rel="canonical" href={`https://calchub.com${category.href}`} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": category.title,
+            "description": category.description,
+            "url": `https://calchub.com${category.href}`,
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": category.calculators.map((calc, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "name": calc.title,
+                "url": `https://calchub.com${calc.href}`
+              }))
+            }
+          })}
+        </script>
       </Helmet>
 
       <div className="min-h-screen py-8">
@@ -66,11 +88,19 @@ const CategoryPage = () => {
                     className="group bg-card border-border hover:shadow-lg hover:border-primary/20 transition-all duration-300"
                   >
                     <CardHeader className="pb-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <CalcIcon className="h-5 w-5 text-primary" />
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                            <CalcIcon className="h-5 w-5 text-primary" />
+                          </div>
+                          <CardTitle className="text-lg text-foreground">{calculator.title}</CardTitle>
                         </div>
-                        <CardTitle className="text-lg text-foreground">{calculator.title}</CardTitle>
+                        {calculator.isPopular && (
+                          <Badge variant="secondary" className="flex items-center gap-1">
+                            <Star className="w-3 h-3" />
+                            Popular
+                          </Badge>
+                        )}
                       </div>
                     </CardHeader>
                     <CardContent className="space-y-4">
