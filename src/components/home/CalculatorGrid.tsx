@@ -1,48 +1,15 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Wallet, Flame, Building2, Percent, ArrowRight } from 'lucide-react';
+import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ArrowRight } from 'lucide-react';
 
 const calculators = [
-  {
-    title: 'BMI Calculator',
-    description: 'Calculate Body Mass Index to understand if you are at a healthy weight.',
-    icon: Activity,
-    href: '/bmi-calculator',
-    color: 'text-primary',
-    bg: 'bg-primary/10',
-  },
-  {
-    title: 'EMI Calculator',
-    description: 'Calculate monthly installments for your loans with interest breakdown.',
-    icon: Wallet,
-    href: '/emi-calculator',
-    color: 'text-accent',
-    bg: 'bg-accent/10',
-  },
-  {
-    title: 'Calorie Calculator',
-    description: 'Find your daily calorie needs based on your fitness goals.',
-    icon: Flame,
-    href: '/calorie-calculator',
-    color: 'text-destructive',
-    bg: 'bg-destructive/10',
-  },
-  {
-    title: 'Loan Calculator',
-    description: 'Calculate total payments and interest for any loan type.',
-    icon: Building2,
-    href: '/loan-calculator',
-    color: 'text-primary',
-    bg: 'bg-primary/10',
-  },
-  {
-    title: 'Percentage Calculator',
-    description: 'Quick percentage calculations for discounts, tips, and more.',
-    icon: Percent,
-    href: '/percentage-calculator',
-    color: 'text-accent',
-    bg: 'bg-accent/10',
-  },
+  { title: 'BMI Calculator', description: 'Calculate Body Mass Index to understand if you are at a healthy weight.', icon: Activity, href: '/bmi-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'EMI Calculator', description: 'Calculate monthly installments for your loans with interest breakdown.', icon: Wallet, href: '/emi-calculator', color: 'text-accent', bg: 'bg-accent/10' },
+  { title: 'Loan Calculator', description: 'Calculate total payments and interest for any loan type.', icon: CreditCard, href: '/loan-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'Calorie Calculator', description: 'Find your daily calorie needs based on your fitness goals.', icon: Flame, href: '/calorie-calculator', color: 'text-destructive', bg: 'bg-destructive/10' },
+  { title: 'Percentage Calculator', description: 'Quick percentage calculations for discounts, tips, and more.', icon: Percent, href: '/percentage-calculator', color: 'text-accent', bg: 'bg-accent/10' },
+  { title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/age-calculator', color: 'text-primary', bg: 'bg-primary/10' },
+  { title: 'Compound Interest', description: 'See how your investments grow with compound interest.', icon: LineChart, href: '/compound-interest-calculator', color: 'text-accent', bg: 'bg-accent/10' },
 ];
 
 export const CalculatorGrid = () => {

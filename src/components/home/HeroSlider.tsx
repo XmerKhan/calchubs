@@ -1,49 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Activity, Wallet, Flame, Building2, Percent, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
-  {
-    id: 1,
-    title: 'BMI Calculator',
-    description: 'Calculate your Body Mass Index and understand your health status instantly.',
-    icon: Activity,
-    href: '/bmi-calculator',
-    gradient: 'from-primary/10 to-primary/5',
-  },
-  {
-    id: 2,
-    title: 'EMI Calculator',
-    description: 'Plan your loans better with accurate monthly payment calculations.',
-    icon: Wallet,
-    href: '/emi-calculator',
-    gradient: 'from-accent/10 to-accent/5',
-  },
-  {
-    id: 3,
-    title: 'Calorie Calculator',
-    description: 'Find your daily caloric needs based on your goals and activity level.',
-    icon: Flame,
-    href: '/calorie-calculator',
-    gradient: 'from-destructive/10 to-destructive/5',
-  },
-  {
-    id: 4,
-    title: 'Loan Calculator',
-    description: 'Calculate total interest and payment schedules for any loan type.',
-    icon: Building2,
-    href: '/loan-calculator',
-    gradient: 'from-primary/10 to-primary/5',
-  },
-  {
-    id: 5,
-    title: 'Percentage Calculator',
-    description: 'Quick and easy percentage calculations for any scenario.',
-    icon: Percent,
-    href: '/percentage-calculator',
-    gradient: 'from-accent/10 to-accent/5',
-  },
+  { id: 1, title: 'BMI Calculator', description: 'Calculate your Body Mass Index and understand your health status instantly.', icon: Activity, href: '/bmi-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 2, title: 'EMI Calculator', description: 'Plan your loans better with accurate monthly payment calculations.', icon: Wallet, href: '/emi-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 3, title: 'Loan Calculator', description: 'Calculate total interest and payment schedules for any loan type.', icon: CreditCard, href: '/loan-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 4, title: 'Calorie Calculator', description: 'Find your daily caloric needs based on your goals and activity level.', icon: Flame, href: '/calorie-calculator', gradient: 'from-destructive/10 to-destructive/5' },
+  { id: 5, title: 'Percentage Calculator', description: 'Quick and easy percentage calculations for any scenario.', icon: Percent, href: '/percentage-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 6, title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/age-calculator', gradient: 'from-primary/10 to-primary/5' },
+  { id: 7, title: 'Compound Interest', description: 'See how your money grows with compound interest over time.', icon: LineChart, href: '/compound-interest-calculator', gradient: 'from-accent/10 to-accent/5' },
 ];
 
 export const HeroSlider = () => {
