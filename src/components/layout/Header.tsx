@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Calculator, Menu, Moon, Sun } from 'lucide-react';
-import { categories } from '@/data/calculatorCategories';
+import { Calculator, Menu, Moon, Sun, BookOpen, Wrench, Home as HomeIcon } from 'lucide-react';
 
 interface HeaderProps {
   isDark: boolean;
@@ -12,6 +11,12 @@ interface HeaderProps {
 
 export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { label: 'Home', href: '/', icon: HomeIcon },
+    { label: 'Tools', href: '/#tools', icon: Wrench },
+    { label: 'Blog', href: '/blog', icon: BookOpen },
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -24,20 +29,14 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1">
-          <Link
-            to="/"
-            className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
-          >
-            Home
-          </Link>
-          {categories.map((category) => (
+        <nav className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => (
             <Link
-              key={category.id}
-              to={category.href}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+              key={link.label}
+              to={link.href}
+              className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
             >
-              {category.title.replace(' Calculators', '')}
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -49,43 +48,29 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
             onClick={toggleTheme}
             className="h-9 w-9"
           >
-            {isDark ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
 
           {/* Mobile Menu */}
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
-            <SheetTrigger asChild className="lg:hidden">
+            <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" className="h-9 w-9">
                 <Menu className="h-5 w-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[280px] bg-background">
               <div className="flex flex-col gap-2 mt-6">
-                <Link
-                  to="/"
-                  onClick={() => setIsOpen(false)}
-                  className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors"
-                >
-                  Home
-                </Link>
-                <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                  Categories
-                </div>
-                {categories.map((category) => {
-                  const Icon = category.icon;
+                {navLinks.map((link) => {
+                  const Icon = link.icon;
                   return (
                     <Link
-                      key={category.id}
-                      to={category.href}
+                      key={link.label}
+                      to={link.href}
                       onClick={() => setIsOpen(false)}
                       className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
                     >
                       <Icon className="w-4 h-4 text-primary" />
-                      {category.title}
+                      {link.label}
                     </Link>
                   );
                 })}
