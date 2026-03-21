@@ -1,7 +1,6 @@
 import { HeroSlider } from '@/components/home/HeroSlider';
 import { CalculatorGrid } from '@/components/home/CalculatorGrid';
 import { Features } from '@/components/home/Features';
-import { LatestBlogs } from '@/components/home/LatestBlogs';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
@@ -28,10 +27,7 @@ const Index = () => {
         </script>
       </Helmet>
       <HeroSlider />
-      <div id="tools">
-        <CalculatorGrid />
-      </div>
-      <LatestBlogs />
+      <CalculatorGrid />
       <Features />
     </>
   );

@@ -60,10 +60,6 @@ import Disclaimer from "./pages/Disclaimer";
 import CookiePolicy from "./pages/CookiePolicy";
 import AdSenseInfo from "./pages/AdSenseInfo";
 
-// Blog
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -164,10 +160,6 @@ const App = () => {
                 <Route path="/disclaimer" element={<Disclaimer />} />
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/adsense-info" element={<AdSenseInfo />} />
-
-                {/* Blog */}
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
 
                 {/* Fallback */}
                 <Route path="*" element={<Navigate to="/" replace />} />
