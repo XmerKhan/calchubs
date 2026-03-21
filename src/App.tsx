@@ -165,6 +165,10 @@ const App = () => {
                 <Route path="/cookie-policy" element={<CookiePolicy />} />
                 <Route path="/adsense-info" element={<AdSenseInfo />} />
 
+                {/* Blog */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+
                 {/* Fallback */}
                 <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
