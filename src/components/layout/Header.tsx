@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Calculator, Menu, Moon, Sun } from 'lucide-react';
+import { Calculator, Menu, Moon, Sun, BookOpen } from 'lucide-react';
 import { categories } from '@/data/calculatorCategories';
 
 interface HeaderProps {

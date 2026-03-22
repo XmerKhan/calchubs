@@ -156,6 +156,10 @@ const App = () => {
                 <Route path="/ohms-law-calculator" element={<OhmsLawCalculator />} />
                 <Route path="/voltage-calculator" element={<VoltageCalculator />} />
 
+                {/* Blog */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+
                 {/* Static Pages */}
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />

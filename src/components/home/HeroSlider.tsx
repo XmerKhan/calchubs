@@ -41,6 +41,10 @@ export const HeroSlider = () => {
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
+        style={{ backgroundImage: `url(${slide.bgImage})`, opacity: 0.12 }}
+      />
       <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} transition-all duration-500`} />
       
       <div className="container relative">
