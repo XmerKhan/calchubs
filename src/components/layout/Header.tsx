@@ -95,6 +95,17 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                     </Link>
                   );
                 })}
+                <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  More
+                </div>
+                <Link
+                  to="/blog"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
+                >
+                  <BookOpen className="w-4 h-4 text-primary" />
+                  Blog
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
