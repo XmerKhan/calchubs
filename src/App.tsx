@@ -60,6 +60,10 @@ import Disclaimer from "./pages/Disclaimer";
 import CookiePolicy from "./pages/CookiePolicy";
 import AdSenseInfo from "./pages/AdSenseInfo";
 
+// Blog
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+
 const queryClient = new QueryClient();
 
 const App = () => {
