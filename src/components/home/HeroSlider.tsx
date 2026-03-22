@@ -5,13 +5,13 @@ import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, Chev
 import { Badge } from '@/components/ui/badge';
 
 const slides = [
-  { id: 1, title: 'BMI Calculator', description: 'Calculate your Body Mass Index and understand your health status instantly.', icon: Activity, href: '/health-fitness/bmi-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 2, title: 'EMI Calculator', description: 'Plan your loans better with accurate monthly payment calculations.', icon: Wallet, href: '/finance/emi-calculator', gradient: 'from-accent/10 to-accent/5' },
-  { id: 3, title: 'Loan Calculator', description: 'Calculate total interest and payment schedules for any loan type.', icon: CreditCard, href: '/finance/loan-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 4, title: 'Calorie Calculator', description: 'Find your daily caloric needs based on your goals and activity level.', icon: Flame, href: '/health-fitness/calorie-calculator', gradient: 'from-destructive/10 to-destructive/5' },
-  { id: 5, title: 'Percentage Calculator', description: 'Quick and easy percentage calculations for any scenario.', icon: Percent, href: '/math/percentage-calculator', gradient: 'from-accent/10 to-accent/5' },
-  { id: 6, title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/daily-routine/age-calculator', gradient: 'from-primary/10 to-primary/5' },
-  { id: 7, title: 'Compound Interest', description: 'See how your money grows with compound interest over time.', icon: LineChart, href: '/finance/compound-interest-calculator', gradient: 'from-accent/10 to-accent/5' },
+  { id: 1, title: 'BMI Calculator', description: 'Calculate your Body Mass Index and understand your health status instantly.', icon: Activity, href: '/health-fitness/bmi-calculator', gradient: 'from-primary/10 to-primary/5', bgImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=1200&q=60' },
+  { id: 2, title: 'EMI Calculator', description: 'Plan your loans better with accurate monthly payment calculations.', icon: Wallet, href: '/finance/emi-calculator', gradient: 'from-accent/10 to-accent/5', bgImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=60' },
+  { id: 3, title: 'Loan Calculator', description: 'Calculate total interest and payment schedules for any loan type.', icon: CreditCard, href: '/finance/loan-calculator', gradient: 'from-primary/10 to-primary/5', bgImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=60' },
+  { id: 4, title: 'Calorie Calculator', description: 'Find your daily caloric needs based on your goals and activity level.', icon: Flame, href: '/health-fitness/calorie-calculator', gradient: 'from-destructive/10 to-destructive/5', bgImage: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=1200&q=60' },
+  { id: 5, title: 'Percentage Calculator', description: 'Quick and easy percentage calculations for any scenario.', icon: Percent, href: '/math/percentage-calculator', gradient: 'from-accent/10 to-accent/5', bgImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=1200&q=60' },
+  { id: 6, title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/daily-routine/age-calculator', gradient: 'from-primary/10 to-primary/5', bgImage: 'https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=1200&q=60' },
+  { id: 7, title: 'Compound Interest', description: 'See how your money grows with compound interest over time.', icon: LineChart, href: '/finance/compound-interest-calculator', gradient: 'from-accent/10 to-accent/5', bgImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&q=60' },
 ];
 
 export const HeroSlider = () => {
@@ -41,6 +41,10 @@ export const HeroSlider = () => {
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-all duration-700"
+        style={{ backgroundImage: `url(${slide.bgImage})`, opacity: 0.12 }}
+      />
       <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} transition-all duration-500`} />
       
       <div className="container relative">

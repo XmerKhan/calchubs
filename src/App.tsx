@@ -60,6 +60,10 @@ import Disclaimer from "./pages/Disclaimer";
 import CookiePolicy from "./pages/CookiePolicy";
 import AdSenseInfo from "./pages/AdSenseInfo";
 
+// Blog
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -151,6 +155,10 @@ const App = () => {
                 <Route path="/work-energy-calculator" element={<WorkEnergyCalculator />} />
                 <Route path="/ohms-law-calculator" element={<OhmsLawCalculator />} />
                 <Route path="/voltage-calculator" element={<VoltageCalculator />} />
+
+                {/* Blog */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
 
                 {/* Static Pages */}
                 <Route path="/about" element={<About />} />

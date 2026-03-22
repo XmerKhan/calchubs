@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Calculator, Menu, Moon, Sun } from 'lucide-react';
+import { Calculator, Menu, Moon, Sun, BookOpen } from 'lucide-react';
 import { categories } from '@/data/calculatorCategories';
 
 interface HeaderProps {
@@ -40,6 +40,12 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
               {category.title.replace(' Calculators', '')}
             </Link>
           ))}
+          <Link
+            to="/blog"
+            className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-secondary"
+          >
+            Blog
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -89,6 +95,17 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
                     </Link>
                   );
                 })}
+                <div className="px-4 py-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  More
+                </div>
+                <Link
+                  to="/blog"
+                  onClick={() => setIsOpen(false)}
+                  className="px-4 py-3 text-base font-medium text-foreground hover:bg-secondary rounded-lg transition-colors flex items-center gap-3"
+                >
+                  <BookOpen className="w-4 h-4 text-primary" />
+                  Blog
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
