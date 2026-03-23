@@ -2,6 +2,8 @@ import { HeroSlider } from '@/components/home/HeroSlider';
 import { CalculatorGrid } from '@/components/home/CalculatorGrid';
 import { Features } from '@/components/home/Features';
 import { LatestBlogs } from '@/components/home/LatestBlogs';
+import { VisitorCounter } from '@/components/home/VisitorCounter';
+import { TrustedPartners } from '@/components/home/TrustedPartners';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
@@ -28,8 +30,10 @@ const Index = () => {
         </script>
       </Helmet>
       <HeroSlider />
+      <VisitorCounter />
       <CalculatorGrid />
       <LatestBlogs />
+      <TrustedPartners />
       <Features />
     </>
   );

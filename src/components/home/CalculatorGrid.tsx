@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ArrowRight, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 
 const calculators = [
   { title: 'BMI Calculator', description: 'Calculate Body Mass Index to understand if you are at a healthy weight.', icon: Activity, href: '/health-fitness/bmi-calculator', color: 'text-primary', bg: 'bg-primary/10' },
@@ -30,30 +31,38 @@ export const CalculatorGrid = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {calculators.map((calc) => {
-            const Icon = calc.icon;
-            return (
-              <Link key={calc.href} to={calc.href}>
-                <Card className="h-full bg-card hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 border-border group">
-                  <CardHeader>
-                    <div className={`w-12 h-12 rounded-xl ${calc.bg} flex items-center justify-center mb-2`}>
-                      <Icon className={`w-6 h-6 ${calc.color}`} />
-                    </div>
-                    <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                      {calc.title}
-                      <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-muted-foreground text-base">
-                      {calc.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </Link>
-            );
-          })}
+        <div className="px-8">
+          <Carousel opts={{ align: 'start', loop: true }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {calculators.map((calc) => {
+                const Icon = calc.icon;
+                return (
+                  <CarouselItem key={calc.href} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
+                    <Link to={calc.href}>
+                      <Card className="h-full bg-card hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 border-border group">
+                        <CardHeader>
+                          <div className={`w-12 h-12 rounded-xl ${calc.bg} flex items-center justify-center mb-2`}>
+                            <Icon className={`w-6 h-6 ${calc.color}`} />
+                          </div>
+                          <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
+                            {calc.title}
+                            <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <CardDescription className="text-muted-foreground text-base">
+                            {calc.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </CarouselItem>
+                );
+              })}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </div>
     </section>
