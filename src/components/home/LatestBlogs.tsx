@@ -1,12 +1,25 @@
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, BookOpen } from 'lucide-react';
-import { blogPosts } from '@/data/blogPosts';
+import { ArrowRight, BookOpen, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useSheetDBBlogs } from '@/hooks/useSheetDBBlogs';
 
 export const LatestBlogs = () => {
-  const latest = blogPosts.slice(0, 3);
+  const { data: posts, isLoading, isError } = useSheetDBBlogs();
+  const latest = posts?.slice(0, 6) ?? [];
+
+  if (isLoading) {
+    return (
+      <section className="py-16">
+        <div className="container flex justify-center">
+          <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+        </div>
+      </section>
+    );
+  }
+
+  if (isError || latest.length === 0) return null;
 
   return (
     <section className="py-16">
@@ -28,10 +41,14 @@ export const LatestBlogs = () => {
           {latest.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`}>
               <Card className="h-full bg-card hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 border-border group">
+                {post.image && (
+                  <div className="aspect-video overflow-hidden rounded-t-lg">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover" loading="lazy" />
+                  </div>
+                )}
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
-                    <Badge variant="outline" className="text-xs">{post.category}</Badge>
-                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
+                    <span className="text-xs text-muted-foreground">{post.date}</span>
                   </div>
                   <CardTitle className="text-lg text-foreground group-hover:text-primary transition-colors leading-snug">
                     {post.title}
