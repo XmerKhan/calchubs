@@ -26,28 +26,33 @@ export const Footer = () => {
             <h3 className="font-semibold text-foreground">Calculators</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/bmi-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/health-fitness/bmi-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   BMI Calculator
                 </Link>
               </li>
               <li>
-                <Link to="/emi-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/finance/emi-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   EMI Calculator
                 </Link>
               </li>
               <li>
-                <Link to="/loan-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/finance/loan-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Loan Calculator
                 </Link>
               </li>
               <li>
-                <Link to="/calorie-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/health-fitness/calorie-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Calorie Calculator
                 </Link>
               </li>
               <li>
-                <Link to="/percentage-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <Link to="/math/percentage-calculator" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Percentage Calculator
+                </Link>
+              </li>
+              <li>
+                <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                  Blog
                 </Link>
               </li>
             </ul>

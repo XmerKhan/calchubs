@@ -6,6 +6,7 @@ const PrivacyPolicy = () => {
       <Helmet>
         <title>Privacy Policy - CalcHub</title>
         <meta name="description" content="CalcHub's privacy policy explains how we collect, use, and protect your personal information." />
+        <link rel="canonical" href="https://calchub.com/privacy-policy" />
       </Helmet>
 
       <div className="min-h-screen py-12">
