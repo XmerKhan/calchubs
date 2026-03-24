@@ -6,6 +6,7 @@ const CookiePolicy = () => {
       <Helmet>
         <title>Cookie Policy - CalcHub</title>
         <meta name="description" content="Learn about how CalcHub uses cookies and similar technologies on our website." />
+        <link rel="canonical" href="https://calchub.com/cookie-policy" />
       </Helmet>
 
       <div className="min-h-screen py-12">

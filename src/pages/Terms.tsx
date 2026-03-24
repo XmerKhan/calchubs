@@ -6,6 +6,7 @@ const Terms = () => {
       <Helmet>
         <title>Terms & Conditions - CalcHub</title>
         <meta name="description" content="Read CalcHub's terms and conditions for using our free online calculator services." />
+        <link rel="canonical" href="https://calchub.com/terms" />
       </Helmet>
 
       <div className="min-h-screen py-12">

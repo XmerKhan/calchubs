@@ -36,6 +36,7 @@ const Contact = () => {
       <Helmet>
         <title>Contact Us - CalcHub | Get in Touch</title>
         <meta name="description" content="Have questions or suggestions? Contact the CalcHub team. We're here to help with calculator-related inquiries." />
+        <link rel="canonical" href="https://calchub.com/contact" />
       </Helmet>
 
       <div className="min-h-screen py-12">

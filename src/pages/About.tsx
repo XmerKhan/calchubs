@@ -8,6 +8,7 @@ const About = () => {
       <Helmet>
         <title>About Us - CalcHub | Our Mission & Story</title>
         <meta name="description" content="Learn about CalcHub's mission to provide free, accurate online calculators for everyone. Discover our story and values." />
+        <link rel="canonical" href="https://calchub.com/about" />
       </Helmet>
 
       <div className="min-h-screen py-12">

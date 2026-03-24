@@ -6,6 +6,7 @@ const Disclaimer = () => {
       <Helmet>
         <title>Disclaimer - CalcHub</title>
         <meta name="description" content="Read CalcHub's disclaimer regarding the use of our online calculators and the limitations of our services." />
+        <link rel="canonical" href="https://calchub.com/disclaimer" />
       </Helmet>
 
       <div className="min-h-screen py-12">
