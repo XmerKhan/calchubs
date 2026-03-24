@@ -1,69 +1,112 @@
 import { Link } from 'react-router-dom';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Activity, Wallet, Flame, CreditCard, Percent, Calendar, LineChart, ArrowRight, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
+import { Star } from 'lucide-react';
+import { categories } from '@/data/calculatorCategories';
+import { useEffect, useRef, useState } from 'react';
 
-const calculators = [
-  { title: 'BMI Calculator', description: 'Calculate Body Mass Index to understand if you are at a healthy weight.', icon: Activity, href: '/health-fitness/bmi-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'EMI Calculator', description: 'Calculate monthly installments for your loans with interest breakdown.', icon: Wallet, href: '/finance/emi-calculator', color: 'text-accent', bg: 'bg-accent/10' },
-  { title: 'Loan Calculator', description: 'Calculate total payments and interest for any loan type.', icon: CreditCard, href: '/finance/loan-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'Calorie Calculator', description: 'Find your daily calorie needs based on your fitness goals.', icon: Flame, href: '/health-fitness/calorie-calculator', color: 'text-destructive', bg: 'bg-destructive/10' },
-  { title: 'Percentage Calculator', description: 'Quick percentage calculations for discounts, tips, and more.', icon: Percent, href: '/math/percentage-calculator', color: 'text-accent', bg: 'bg-accent/10' },
-  { title: 'Age Calculator', description: 'Calculate your exact age in years, months, and days.', icon: Calendar, href: '/daily-routine/age-calculator', color: 'text-primary', bg: 'bg-primary/10' },
-  { title: 'Compound Interest', description: 'See how your investments grow with compound interest.', icon: LineChart, href: '/finance/compound-interest-calculator', color: 'text-accent', bg: 'bg-accent/10' },
-];
+const allTools = categories.flatMap(cat =>
+  cat.calculators.map(calc => ({
+    ...calc,
+    categoryIcon: cat.icon,
+    categoryTitle: cat.title,
+  }))
+);
+
+// Split into two rows
+const mid = Math.ceil(allTools.length / 2);
+const row1 = allTools.slice(0, mid);
+const row2 = allTools.slice(mid);
+
+const ScrollRow = ({ tools, direction = 'left', speed = 30 }: { tools: typeof allTools; direction?: 'left' | 'right'; speed?: number }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const scrollRef = useRef(0);
+  const animRef = useRef<number>();
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const totalWidth = container.scrollWidth / 2;
+    let lastTime = performance.now();
+
+    const animate = (now: number) => {
+      if (!isPaused) {
+        const delta = (now - lastTime) / 1000;
+        const px = delta * speed;
+        scrollRef.current += direction === 'left' ? px : -px;
+
+        if (direction === 'left' && scrollRef.current >= totalWidth) {
+          scrollRef.current -= totalWidth;
+        } else if (direction === 'right' && scrollRef.current <= -totalWidth) {
+          scrollRef.current += totalWidth;
+        }
+
+        container.style.transform = `translateX(${-scrollRef.current}px)`;
+      }
+      lastTime = now;
+      animRef.current = requestAnimationFrame(animate);
+    };
+
+    animRef.current = requestAnimationFrame(animate);
+    return () => { if (animRef.current) cancelAnimationFrame(animRef.current); };
+  }, [isPaused, direction, speed]);
+
+  // Duplicate items for seamless loop
+  const items = [...tools, ...tools];
+
+  return (
+    <div
+      className="overflow-hidden"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div ref={containerRef} className="flex gap-4 w-max will-change-transform">
+        {items.map((calc, i) => {
+          const Icon = calc.icon;
+          return (
+            <Link
+              key={`${calc.href}-${i}`}
+              to={calc.href}
+              className="flex-shrink-0 w-[220px] group"
+            >
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-border bg-card hover:shadow-md hover:border-primary/30 transition-all duration-300 hover:-translate-y-0.5">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="w-5 h-5 text-primary" />
+                </div>
+                <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate">
+                  {calc.title}
+                </span>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 export const CalculatorGrid = () => {
   return (
     <section className="py-16 bg-secondary/30">
       <div className="container">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <Badge variant="secondary" className="mb-4 inline-flex items-center gap-1">
             <Star className="w-3 h-3" />
-            Most Used
+            All Tools
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
             Popular Calculators
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Free, accurate, and easy-to-use online calculators for your everyday needs.
+            {allTools.length}+ free, accurate calculators for finance, math, health, and more.
           </p>
         </div>
+      </div>
 
-        <div className="px-8">
-          <Carousel opts={{ align: 'start', loop: true }} className="w-full">
-            <CarouselContent className="-ml-4">
-              {calculators.map((calc) => {
-                const Icon = calc.icon;
-                return (
-                  <CarouselItem key={calc.href} className="pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                    <Link to={calc.href}>
-                      <Card className="h-full bg-card hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 border-border group">
-                        <CardHeader>
-                          <div className={`w-12 h-12 rounded-xl ${calc.bg} flex items-center justify-center mb-2`}>
-                            <Icon className={`w-6 h-6 ${calc.color}`} />
-                          </div>
-                          <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors flex items-center gap-2">
-                            {calc.title}
-                            <ArrowRight className="w-4 h-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                          </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                          <CardDescription className="text-muted-foreground text-base">
-                            {calc.description}
-                          </CardDescription>
-                        </CardContent>
-                      </Card>
-                    </Link>
-                  </CarouselItem>
-                );
-              })}
-            </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
-          </Carousel>
-        </div>
+      <div className="space-y-4">
+        <ScrollRow tools={row1} direction="left" speed={35} />
+        <ScrollRow tools={row2} direction="right" speed={28} />
       </div>
     </section>
   );
