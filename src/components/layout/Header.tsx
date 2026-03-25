@@ -20,7 +20,7 @@ export const Header = ({ isDark, toggleTheme }: HeaderProps) => {
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <Calculator className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold text-foreground">CalcHub</span>
+          <span className="text-xl font-bold text-foreground">Vidify</span>
         </Link>
 
         {/* Desktop Navigation */}

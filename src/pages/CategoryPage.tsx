@@ -30,7 +30,7 @@ const CategoryPage = () => {
   return (
     <>
       <Helmet>
-        <title>{category.title} - Free Online Tools | CalcHub</title>
+        <title>{category.title} - Free Online Tools | Vidify Calculators</title>
         <meta name="description" content={`${category.description} Use our free ${category.title.toLowerCase()} for accurate results.`} />
         <meta name="keywords" content={`${category.title.toLowerCase()}, free calculators, online tools, ${category.calculators.map(c => c.title.toLowerCase()).join(', ')}`} />
         <link rel="canonical" href={`https://calchub.com${category.href}`} />
