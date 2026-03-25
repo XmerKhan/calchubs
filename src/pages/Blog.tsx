@@ -10,9 +10,9 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Blog - CalcHub | Calculator Tips, Guides & Financial Insights</title>
+        <title>Blog - Vidify Calculators | Tips, Guides & Insights</title>
         <meta name="description" content="Read our latest articles on BMI, EMI, compound interest, percentage tricks, calorie counting, and more." />
-        <link rel="canonical" href="https://calchub.com/blog" />
+        <link rel="canonical" href="https://vidify.site/blog" />
       </Helmet>
 
       <section className="py-12 md:py-16">

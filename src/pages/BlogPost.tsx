@@ -32,9 +32,9 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} - CalcHub Blog</title>
+        <title>{post.title} - Vidify Calculators Blog</title>
         <meta name="description" content={post.description} />
-        <link rel="canonical" href={`https://calchub.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://vidify.site/blog/${post.slug}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -43,14 +43,13 @@ const BlogPost = () => {
             description: post.description,
             datePublished: post.date,
             image: post.image || undefined,
-            publisher: { "@type": "Organization", name: "CalcHub" },
+            publisher: { "@type": "Organization", name: "Vidify Calculators" },
           })}
         </script>
       </Helmet>
 
       <article className="py-12 md:py-16">
         <div className="container max-w-3xl">
-          {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-8">
             <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
             <span>/</span>
@@ -66,7 +65,6 @@ const BlogPost = () => {
             </Link>
           </Button>
 
-          {/* Ad slot: Top */}
           <AdPlaceholder label="Advertisement" />
 
           <div className="flex items-center gap-3 mb-4">
@@ -82,7 +80,6 @@ const BlogPost = () => {
             <img src={post.image} alt={post.title} className="w-full rounded-xl mb-8 object-cover max-h-96" />
           )}
 
-          {/* Blog content with improved typography */}
           <div
             className="prose prose-lg dark:prose-invert max-w-none
               prose-headings:text-foreground prose-headings:font-bold prose-headings:leading-tight prose-headings:mt-10 prose-headings:mb-4
@@ -94,11 +91,9 @@ const BlogPost = () => {
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
-          {/* Ad slot: End of article */}
           <AdPlaceholder label="Advertisement" />
         </div>
 
-        {/* Related Blogs */}
         {related.length > 0 && (
           <div className="container max-w-4xl mt-16 pt-10 border-t border-border">
             <h2 className="text-2xl font-bold text-foreground mb-8">You May Also Like</h2>

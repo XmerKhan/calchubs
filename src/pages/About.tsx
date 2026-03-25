@@ -6,15 +6,15 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About Us - CalcHub | Our Mission & Story</title>
-        <meta name="description" content="Learn about CalcHub's mission to provide free, accurate online calculators for everyone. Discover our story and values." />
-        <link rel="canonical" href="https://calchub.com/about" />
+        <title>About Us - Vidify Calculators | Our Mission & Story</title>
+        <meta name="description" content="Learn about Vidify Calculators' mission to provide free, accurate online calculators for everyone. Discover our story and values." />
+        <link rel="canonical" href="https://vidify.site/about" />
       </Helmet>
 
       <div className="min-h-screen py-12">
         <div className="container max-w-4xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">About CalcHub</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">About Vidify Calculators</h1>
             <p className="text-xl text-muted-foreground">Making calculations simple for everyone</p>
           </div>
 
@@ -22,7 +22,7 @@ const About = () => {
             <Card className="bg-card border-border">
               <CardContent className="pt-6">
                 <p className="text-muted-foreground leading-relaxed">
-                  CalcHub was founded with a simple mission: to provide free, accurate, and easy-to-use online calculators for everyone. Whether you're planning your finances, monitoring your health, or solving everyday math problems, our tools are designed to give you instant, reliable results.
+                  Vidify Calculators was founded with a simple mission: to provide free, accurate, and easy-to-use online calculators for everyone. Whether you're planning your finances, monitoring your health, or solving everyday math problems, our tools are designed to give you instant, reliable results.
                 </p>
               </CardContent>
             </Card>
@@ -51,7 +51,7 @@ const About = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-muted-foreground">
-                    Every calculator on CalcHub is built with precision and tested for accuracy. We use industry-standard formulas and keep our tools updated with the latest standards.
+                    Every calculator on Vidify is built with precision and tested for accuracy. We use industry-standard formulas and keep our tools updated with the latest standards.
                   </p>
                 </CardContent>
               </Card>
@@ -69,7 +69,7 @@ const About = () => {
                   We believe that everyone should have access to tools that help them make better decisions. Financial calculators shouldn't be hidden behind paywalls. Health tools shouldn't require subscriptions. Basic math shouldn't need expensive software.
                 </p>
                 <p className="text-muted-foreground">
-                  That's why CalcHub will always be free. We sustain our operations through respectful advertising that doesn't interrupt your experience.
+                  That's why Vidify Calculators will always be free. We sustain our operations through respectful advertising that doesn't interrupt your experience.
                 </p>
               </CardContent>
             </Card>
@@ -83,7 +83,7 @@ const About = () => {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  CalcHub is built and maintained by a dedicated team of developers, mathematicians, and UX designers who are passionate about creating tools that make a difference. We're constantly working to improve existing calculators and add new ones based on user feedback.
+                  Vidify Calculators is built and maintained by a dedicated team of developers, mathematicians, and UX designers who are passionate about creating tools that make a difference. We're constantly working to improve existing calculators and add new ones based on user feedback.
                 </p>
               </CardContent>
             </Card>

@@ -14,7 +14,7 @@ export const Footer = () => {
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
                 <Calculator className="h-5 w-5 text-primary-foreground" />
               </div>
-              <span className="text-xl font-bold text-foreground">CalcHub</span>
+              <span className="text-xl font-bold text-foreground">Vidify</span>
             </Link>
             <p className="text-sm text-muted-foreground">
               Free online calculators for everyday calculations. Accurate, fast, and easy to use.
@@ -110,7 +110,7 @@ export const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-border">
           <p className="text-center text-sm text-muted-foreground">
-            © {currentYear} CalcHub. All rights reserved. Made with accuracy in mind.
+            © {currentYear} Vidify Calculators. All rights reserved. Made with accuracy in mind.
           </p>
         </div>
       </div>

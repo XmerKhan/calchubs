@@ -33,7 +33,7 @@ export const VisitorCounter = () => {
             <p className="text-3xl md:text-4xl font-bold text-foreground tabular-nums">
               {count.toLocaleString()}+
             </p>
-            <p className="text-muted-foreground text-sm">Happy users trust CalcHub for daily calculations</p>
+            <p className="text-muted-foreground text-sm">Happy users trust Vidify Calculators for daily calculations</p>
           </div>
         </div>
       </div>
