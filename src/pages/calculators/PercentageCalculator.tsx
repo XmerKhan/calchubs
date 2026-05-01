@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Percent, ArrowRight } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const PercentageCalculator = () => {
   // Type 1: What is X% of Y?
@@ -239,8 +240,7 @@ const PercentageCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['percentage']}             example={{
               title: 'Real-Life Example',
               scenario: 'A jacket originally costs $80. The store offers a 25% discount. How much will you save, and what is the final price?',
               calculation: 'Discount amount = 25% of $80 = (25/100) × 80 = $20\nFinal price = $80 - $20 = $60',

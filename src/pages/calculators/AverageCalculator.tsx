@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { BarChart3 } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const AverageCalculator = () => {
   const [numbers, setNumbers] = useState('');
@@ -123,8 +124,7 @@ const AverageCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['average']}             example={{
               title: 'Real-Life Example',
               scenario: 'Your test scores are: 85, 90, 78, 92, 88',
               calculation: 'Mean = (85+90+78+92+88) / 5 = 86.6',

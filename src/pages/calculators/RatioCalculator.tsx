@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { BarChart3 } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const RatioCalculator = () => {
   const [a, setA] = useState('');
@@ -152,8 +153,7 @@ const RatioCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{ title: 'Example', scenario: '2:3 = ?:9', calculation: '2 × 9 = 3 × ? → ? = 6', result: 'The missing value is 6.' }}
+          <CalculatorContent {...calculatorContent['ratio']}             example={{ title: 'Example', scenario: '2:3 = ?:9', calculation: '2 × 9 = 3 × ? → ? = 6', result: 'The missing value is 6.' }}
             tips={['Cross multiply: A×D = B×C', 'To simplify, divide by GCD.']}
             faqs={[{ question: 'Ratio vs proportion?', answer: 'Ratio compares two values; proportion states two ratios are equal.' }]}
             relatedCalculators={[{ title: 'Fraction Calculator', href: '/math/fraction-calculator' }, { title: 'Percentage Calculator', href: '/math/percentage-calculator' }]}

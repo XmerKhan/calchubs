@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Target, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const RetirementCalculator = () => {
   const [currentAge, setCurrentAge] = useState('');
@@ -159,8 +160,7 @@ const RetirementCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['retirement']}             example={{
               title: 'Real-Life Example',
               scenario: 'A 30-year-old with $50,000 saved contributes $1,000/month at 7% until 65.',
               calculation: '35 years of saving. With compound growth: $1,847,520',

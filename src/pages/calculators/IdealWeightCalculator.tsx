@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Target, User, Ruler } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const IdealWeightCalculator = () => {
   const [height, setHeight] = useState('');
@@ -187,8 +188,7 @@ const IdealWeightCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['ideal-weight']}             example={{
               title: 'Real-Life Example',
               scenario: 'Mike is a 6 feet (72 inches / 183 cm) tall male wanting to find his ideal weight.',
               calculation: 'Robinson: 52 + 1.9 × 12 = 74.8 kg | Miller: 56.2 + 1.41 × 12 = 73.1 kg | Average: ~74 kg',

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const DateDifferenceCalculator = () => {
   const [startDate, setStartDate] = useState('');
@@ -106,8 +107,7 @@ const DateDifferenceCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{ title: 'Example', scenario: 'July 1 to July 14, 2025', calculation: '13 days, 1 week 6 days, 9 work days', result: 'Your vacation spans 13 days with 9 work days off.' }}
+          <CalculatorContent {...calculatorContent['date-difference']}             example={{ title: 'Example', scenario: 'July 1 to July 14, 2025', calculation: '13 days, 1 week 6 days, 9 work days', result: 'Your vacation spans 13 days with 9 work days off.' }}
             tips={['Use for project planning and deadlines.', 'Track elapsed time for contracts.']}
             faqs={[{ question: 'Does this include end date?', answer: 'Yes, both start and end dates are included.' }]}
             relatedCalculators={[{ title: 'Age Calculator', href: '/daily-routine/age-calculator' }, { title: 'Time Duration Calculator', href: '/daily-routine/time-duration-calculator' }]}

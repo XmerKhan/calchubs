@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Tag } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const DiscountCalculator = () => {
   const [originalPrice, setOriginalPrice] = useState('');
@@ -50,7 +51,7 @@ const DiscountCalculator = () => {
               )}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '$120 jacket, 30% off', calculation: 'Discount: $36, Final: $84', result: 'You pay $84 and save $36.' }} tips={['Compare final price to alternatives.', 'Stack coupons for max savings.']} faqs={[{ question: 'How do stacked discounts work?', answer: 'Applied sequentially: 20% off + 10% off = 28% total, not 30%.' }]} relatedCalculators={[{ title: 'Percentage Calculator', href: '/math/percentage-calculator' }]} />
+          <CalculatorContent {...calculatorContent['discount']} example={{ title: 'Example', scenario: '$120 jacket, 30% off', calculation: 'Discount: $36, Final: $84', result: 'You pay $84 and save $36.' }} tips={['Compare final price to alternatives.', 'Stack coupons for max savings.']} faqs={[{ question: 'How do stacked discounts work?', answer: 'Applied sequentially: 20% off + 10% off = 28% total, not 30%.' }]} relatedCalculators={[{ title: 'Percentage Calculator', href: '/math/percentage-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Quick Math</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>10% off: Divide by 10</p><p>25% off: Divide by 4</p><p>50% off: Divide by 2</p></CardContent></Card></div>
       </div>

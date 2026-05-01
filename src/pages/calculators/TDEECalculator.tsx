@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Zap, User, Ruler, Scale, Calendar, Activity } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const TDEECalculator = () => {
   const [age, setAge] = useState('');
@@ -264,8 +265,7 @@ const TDEECalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['tdee']}             example={{
               title: 'Real-Life Example',
               scenario: 'Mike is a 35-year-old male, 180 cm tall, weighing 80 kg with moderate activity.',
               calculation: 'BMR = 10×80 + 6.25×180 - 5×35 + 5 = 1,780 cal | TDEE = 1,780 × 1.55 = 2,759 calories',

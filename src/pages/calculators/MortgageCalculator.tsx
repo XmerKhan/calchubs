@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Home, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const MortgageCalculator = () => {
   const [homePrice, setHomePrice] = useState('');
@@ -150,8 +151,7 @@ const MortgageCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['mortgage']}             example={{
               title: 'Real-Life Example',
               scenario: 'You buy a $350,000 home with 20% down ($70,000) at 6.5% interest for 30 years.',
               calculation: 'Loan = $280,000, Monthly payment = $1,770.09',

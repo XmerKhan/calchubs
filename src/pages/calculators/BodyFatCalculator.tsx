@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Activity, User, Ruler } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const BodyFatCalculator = () => {
   const [gender, setGender] = useState('male');
@@ -232,8 +233,7 @@ const BodyFatCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['body-fat']}             example={{
               title: 'Real-Life Example',
               scenario: 'John is a male, 175 cm tall, with a 85 cm waist and 38 cm neck.',
               calculation: 'Body Fat = 86.010 × log10(85-38) - 70.041 × log10(175) + 36.76 = 18.5%',

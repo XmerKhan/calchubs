@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Droplets, Scale, Activity } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const WaterIntakeCalculator = () => {
   const [weight, setWeight] = useState('');
@@ -181,8 +182,7 @@ const WaterIntakeCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['water-intake']}             example={{
               title: 'Real-Life Example',
               scenario: 'Emma weighs 65 kg, exercises moderately, and lives in a temperate climate.',
               calculation: 'Base: 65 × 0.033 = 2.15L | Activity (×1.1): 2.37L | Climate (×1.0): 2.4L',

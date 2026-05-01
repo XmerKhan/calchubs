@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState('');
@@ -108,8 +109,7 @@ const AgeCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{ title: 'Example', scenario: 'Born March 15, 1990. Today is January 15, 2025.', calculation: '34 years, 10 months, 0 days', result: 'You are 34 years and 10 months old.' }}
+          <CalculatorContent {...calculatorContent['age']}             example={{ title: 'Example', scenario: 'Born March 15, 1990. Today is January 15, 2025.', calculation: '34 years, 10 months, 0 days', result: 'You are 34 years and 10 months old.' }}
             tips={['Use for legal documents requiring exact age.', 'Calculate age at any past or future date.']}
             faqs={[{ question: 'How is age calculated?', answer: 'Counting complete years, then remaining months, then remaining days.' }]}
             relatedCalculators={[{ title: 'Date Difference Calculator', href: '/daily-routine/date-difference-calculator' }, { title: 'Time Duration Calculator', href: '/daily-routine/time-duration-calculator' }]}

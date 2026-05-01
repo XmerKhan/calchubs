@@ -1,9 +1,7 @@
 import { HeroSlider } from '@/components/home/HeroSlider';
 import { CalculatorGrid } from '@/components/home/CalculatorGrid';
 import { Features } from '@/components/home/Features';
-import { LatestBlogs } from '@/components/home/LatestBlogs';
 import { VisitorCounter } from '@/components/home/VisitorCounter';
-import { TrustedPartners } from '@/components/home/TrustedPartners';
 import { Helmet } from 'react-helmet-async';
 
 const Index = () => {
@@ -21,19 +19,12 @@ const Index = () => {
             "name": "Vidify Calculators",
             "url": "https://vidify.site",
             "description": "Free online calculators for everyday calculations",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://vidify.site/search?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
           })}
         </script>
       </Helmet>
       <HeroSlider />
       <VisitorCounter />
       <CalculatorGrid />
-      <LatestBlogs />
-      <TrustedPartners />
       <Features />
     </>
   );
