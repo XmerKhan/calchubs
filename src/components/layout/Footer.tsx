@@ -50,11 +50,6 @@ export const Footer = () => {
                   Percentage Calculator
                 </Link>
               </li>
-              <li>
-                <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                  Blog
-                </Link>
-              </li>
             </ul>
           </div>
 
