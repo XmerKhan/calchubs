@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Flame, User, Ruler, Scale, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const BMRCalculator = () => {
   const [age, setAge] = useState('');
@@ -189,8 +190,7 @@ const BMRCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['bmr']}             example={{
               title: 'Real-Life Example',
               scenario: 'Sarah is a 30-year-old female, 165 cm tall and weighs 60 kg. She wants to know her BMR.',
               calculation: 'BMR = 10 × 60 + 6.25 × 165 - 5 × 30 - 161 = 600 + 1031.25 - 150 - 161 = 1,320 calories/day',

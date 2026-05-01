@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Radical } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const SquareRootCalculator = () => {
   const [number, setNumber] = useState('');
@@ -100,8 +101,7 @@ const SquareRootCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{ title: 'Example', scenario: 'Find √144', calculation: '√144 = 12 (12 × 12 = 144)', result: 'Each side of a 144 sq ft garden is 12 feet.' }}
+          <CalculatorContent {...calculatorContent['square-root']}             example={{ title: 'Example', scenario: 'Find √144', calculation: '√144 = 12 (12 × 12 = 144)', result: 'Each side of a 144 sq ft garden is 12 feet.' }}
             tips={['Perfect squares: 1, 4, 9, 16, 25, 36...', 'Use n=3 for cube root.']}
             faqs={[{ question: 'What is a perfect square?', answer: 'An integer that is the square of another integer (e.g., 9 = 3²).' }]}
             relatedCalculators={[{ title: 'Power Calculator', href: '/math/power-calculator' }, { title: 'Percentage Calculator', href: '/math/percentage-calculator' }]}

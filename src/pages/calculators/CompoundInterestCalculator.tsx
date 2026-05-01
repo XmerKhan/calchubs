@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { LineChart, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const CompoundInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -145,8 +146,7 @@ const CompoundInterestCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['compound-interest']}             example={{
               title: 'Real-Life Example',
               scenario: 'You invest $10,000 at 7% annual interest, compounded monthly for 10 years.',
               calculation: 'A = 10000(1 + 0.07/12)^(12×10) = $20,096.61',

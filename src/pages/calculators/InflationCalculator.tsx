@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { BarChart3, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const InflationCalculator = () => {
   const [currentAmount, setCurrentAmount] = useState('');
@@ -125,8 +126,7 @@ const InflationCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['inflation']}             example={{
               title: 'Real-Life Example',
               scenario: 'You have $100,000 today with 3% annual inflation over 10 years.',
               calculation: 'Future Value needed = $134,392. Purchasing power drops to $74,409',

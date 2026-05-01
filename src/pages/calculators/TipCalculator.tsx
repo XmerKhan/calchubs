@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Receipt } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const TipCalculator = () => {
   const [billAmount, setBillAmount] = useState('');
@@ -58,7 +59,7 @@ const TipCalculator = () => {
               )}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '$85 bill with 4 friends, 20% tip', calculation: 'Tip: $17, Total: $102, Per person: $25.50', result: 'Each person pays $25.50.' }} tips={['15-20% is standard in the US.', '18-20% for excellent service.']} faqs={[{ question: 'How much should I tip?', answer: '15-20% for restaurants, 20%+ for excellent service.' }]} relatedCalculators={[{ title: 'Discount Calculator', href: '/daily-routine/discount-calculator' }]} />
+          <CalculatorContent {...calculatorContent['tip']} example={{ title: 'Example', scenario: '$85 bill with 4 friends, 20% tip', calculation: 'Tip: $17, Total: $102, Per person: $25.50', result: 'Each person pays $25.50.' }} tips={['15-20% is standard in the US.', '18-20% for excellent service.']} faqs={[{ question: 'How much should I tip?', answer: '15-20% for restaurants, 20%+ for excellent service.' }]} relatedCalculators={[{ title: 'Discount Calculator', href: '/daily-routine/discount-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Tipping Guide</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>🍽️ Restaurant: 15-20%</p><p>💇 Salon: 15-20%</p><p>🚕 Taxi: 15-20%</p></CardContent></Card></div>
       </div>

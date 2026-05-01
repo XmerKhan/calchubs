@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Gauge } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const SpeedCalculator = () => {
   const [solveFor, setSolveFor] = useState('speed');
@@ -57,7 +58,7 @@ const SpeedCalculator = () => {
               {result && <div className="p-6 bg-secondary/50 rounded-lg animate-scale-in text-center"><p className="text-muted-foreground mb-2 capitalize">{solveFor}</p><p className="text-5xl font-bold text-primary">{result.value} <span className="text-2xl">{result.unit}</span></p><p className="text-sm text-muted-foreground mt-4"><strong>Formula:</strong> Speed = Distance / Time</p></div>}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: 'Drive 150 km in 2.5 hours', calculation: 'Speed = 150 / 2.5 = 60 km/h', result: 'Average speed is 60 km/h.' }} tips={['Speed = Distance / Time', '1 km/h ≈ 0.62 mph']} faqs={[{ question: 'Speed vs velocity?', answer: 'Speed is magnitude only; velocity includes direction.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
+          <CalculatorContent {...calculatorContent['speed']} example={{ title: 'Example', scenario: 'Drive 150 km in 2.5 hours', calculation: 'Speed = 150 / 2.5 = 60 km/h', result: 'Average speed is 60 km/h.' }} tips={['Speed = Distance / Time', '1 km/h ≈ 0.62 mph']} faqs={[{ question: 'Speed vs velocity?', answer: 'Speed is magnitude only; velocity includes direction.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Formulas</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>Speed = Distance / Time</p><p>Distance = Speed × Time</p><p>Time = Distance / Speed</p></CardContent></Card></div>
       </div>

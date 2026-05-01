@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Building2, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const LoanCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -210,8 +211,7 @@ const LoanCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['loan']}             example={{
               title: 'Real-Life Example',
               scenario: 'The Smiths are buying a home for $300,000 with a 20% down payment, resulting in a $240,000 mortgage at 6.5% for 30 years.',
               calculation: 'P = $240,000, R = 6.5%/12 = 0.542%, N = 360 months\nMonthly = [240000 × 0.00542 × (1.00542)^360] / [(1.00542)^360 - 1] = $1,517',

@@ -8,6 +8,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Flame, User, Activity as ActivityIcon, Target } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const CalorieCalculator = () => {
   const [age, setAge] = useState('');
@@ -236,8 +237,7 @@ const CalorieCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['calorie']}             example={{
               title: 'Real-Life Example',
               scenario: 'Mike is a 30-year-old male, 180 cm tall, weighs 80 kg, and exercises 3-5 days per week. He wants to lose weight.',
               calculation: 'BMR = 10×80 + 6.25×180 - 5×30 + 5 = 1,780 cal\nMaintenance = 1,780 × 1.55 = 2,759 cal\nWeight loss = 2,759 - 500 = 2,259 cal',

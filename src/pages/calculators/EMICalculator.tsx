@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Wallet, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const EMICalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -162,8 +163,7 @@ const EMICalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['emi']}             example={{
               title: 'Real-Life Example',
               scenario: 'Sarah takes a car loan of $25,000 at 7% annual interest for 5 years (60 months).',
               calculation: 'P = $25,000, R = 7%/12 = 0.583%, N = 60 months\nEMI = [25000 × 0.00583 × (1.00583)^60] / [(1.00583)^60 - 1] = $495.03',

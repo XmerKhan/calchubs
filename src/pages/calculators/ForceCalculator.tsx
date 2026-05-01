@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Atom } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const ForceCalculator = () => {
   const [solveFor, setSolveFor] = useState('force');
@@ -57,7 +58,7 @@ const ForceCalculator = () => {
               {result && <div className="p-6 bg-secondary/50 rounded-lg animate-scale-in text-center"><p className="text-muted-foreground mb-2 capitalize">{solveFor}</p><p className="text-5xl font-bold text-primary">{result.value}</p><p className="text-lg text-muted-foreground">{result.unit}</p><p className="text-sm text-muted-foreground mt-4"><strong>Formula:</strong> F = m × a</p></div>}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '1,500 kg car accelerates at 3 m/s²', calculation: 'F = 1500 × 3 = 4,500 N', result: 'The engine exerts 4,500 Newtons.' }} tips={['Weight = mass × gravity (9.81 m/s²)', '1 Newton accelerates 1 kg by 1 m/s²']} faqs={[{ question: 'Mass vs weight?', answer: 'Mass is matter (kg); weight is gravitational force (N).' }]} relatedCalculators={[{ title: 'Speed Calculator', href: '/advanced/speed-calculator' }]} />
+          <CalculatorContent {...calculatorContent['force']} example={{ title: 'Example', scenario: '1,500 kg car accelerates at 3 m/s²', calculation: 'F = 1500 × 3 = 4,500 N', result: 'The engine exerts 4,500 Newtons.' }} tips={['Weight = mass × gravity (9.81 m/s²)', '1 Newton accelerates 1 kg by 1 m/s²']} faqs={[{ question: 'Mass vs weight?', answer: 'Mass is matter (kg); weight is gravitational force (N).' }]} relatedCalculators={[{ title: 'Speed Calculator', href: '/advanced/speed-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Formulas</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>F = m × a</p><p>m = F / a</p><p>a = F / m</p></CardContent></Card></div>
       </div>

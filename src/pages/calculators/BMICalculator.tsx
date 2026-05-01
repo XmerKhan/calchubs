@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Activity, Scale, Ruler } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const BMICalculator = () => {
   const [height, setHeight] = useState('');
@@ -154,8 +155,7 @@ const BMICalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['bmi']}             example={{
               title: 'Real-Life Example',
               scenario: 'John is 175 cm tall and weighs 70 kg. He wants to know if he is at a healthy weight.',
               calculation: 'BMI = 70 / (1.75 × 1.75) = 70 / 3.0625 = 22.9',

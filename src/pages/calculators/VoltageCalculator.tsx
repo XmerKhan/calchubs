@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Cpu } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const VoltageCalculator = () => {
   const [current, setCurrent] = useState('');
@@ -41,7 +42,7 @@ const VoltageCalculator = () => {
               {result && <div className="p-6 bg-secondary/50 rounded-lg animate-scale-in"><div className="text-center mb-4"><p className="text-muted-foreground mb-2">Voltage</p><p className="text-5xl font-bold text-primary">{result.voltage} V</p></div><div className="p-4 bg-background rounded-lg text-center"><p className="text-muted-foreground text-sm">Power</p><p className="text-xl font-semibold text-foreground">{result.power} W</p></div></div>}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '2A current through 6Ω resistor', calculation: 'V = 2 × 6 = 12V', result: 'Voltage is 12 Volts.' }} tips={['V = I × R (Ohm\'s Law)', 'Power = V × I']} faqs={[{ question: 'What is voltage?', answer: 'Electrical pressure that pushes current through a circuit.' }]} relatedCalculators={[{ title: "Ohm's Law Calculator", href: '/advanced/ohms-law-calculator' }]} />
+          <CalculatorContent {...calculatorContent['voltage']} example={{ title: 'Example', scenario: '2A current through 6Ω resistor', calculation: 'V = 2 × 6 = 12V', result: 'Voltage is 12 Volts.' }} tips={['V = I × R (Ohm\'s Law)', 'Power = V × I']} faqs={[{ question: 'What is voltage?', answer: 'Electrical pressure that pushes current through a circuit.' }]} relatedCalculators={[{ title: "Ohm's Law Calculator", href: '/advanced/ohms-law-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Common Voltages</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>🔋 AA Battery: 1.5V</p><p>🚗 Car Battery: 12V</p><p>🏠 US Outlet: 120V</p><p>🇪🇺 EU Outlet: 230V</p></CardContent></Card></div>
       </div>

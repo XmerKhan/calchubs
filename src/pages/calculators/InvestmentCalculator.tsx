@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { TrendingUp, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const InvestmentCalculator = () => {
   const [initialInvestment, setInitialInvestment] = useState('');
@@ -140,8 +141,7 @@ const InvestmentCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['investment']}             example={{
               title: 'Real-Life Example',
               scenario: 'You invest $10,000 initially and add $500/month at 8% return for 20 years.',
               calculation: 'Total invested: $130,000. With compound growth: $344,392',

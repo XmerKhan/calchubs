@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Timer } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const TimeDurationCalculator = () => {
   const [startTime, setStartTime] = useState('');
@@ -58,7 +59,7 @@ const TimeDurationCalculator = () => {
               )}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '9:00 AM to 5:30 PM', calculation: '8 hours 30 minutes = 8.5 decimal hours', result: 'You worked 8.5 hours.' }} tips={['Use decimal hours for payroll.', 'Handles overnight shifts.']} faqs={[{ question: 'What are decimal hours?', answer: '30 min = 0.5 hours, 15 min = 0.25 hours.' }]} relatedCalculators={[{ title: 'Date Difference Calculator', href: '/daily-routine/date-difference-calculator' }]} />
+          <CalculatorContent {...calculatorContent['time-duration']} example={{ title: 'Example', scenario: '9:00 AM to 5:30 PM', calculation: '8 hours 30 minutes = 8.5 decimal hours', result: 'You worked 8.5 hours.' }} tips={['Use decimal hours for payroll.', 'Handles overnight shifts.']} faqs={[{ question: 'What are decimal hours?', answer: '30 min = 0.5 hours, 15 min = 0.25 hours.' }]} relatedCalculators={[{ title: 'Date Difference Calculator', href: '/daily-routine/date-difference-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Conversions</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>15 min = 0.25 hours</p><p>30 min = 0.50 hours</p><p>45 min = 0.75 hours</p></CardContent></Card></div>
       </div>

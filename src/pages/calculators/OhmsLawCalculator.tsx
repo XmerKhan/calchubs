@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Lightbulb } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const OhmsLawCalculator = () => {
   const [solveFor, setSolveFor] = useState('current');
@@ -56,7 +57,7 @@ const OhmsLawCalculator = () => {
               {result && <div className="p-6 bg-secondary/50 rounded-lg animate-scale-in"><div className="text-center mb-4"><p className="text-muted-foreground mb-2 capitalize">{solveFor}</p><p className="text-5xl font-bold text-primary">{result.value} {result.unit}</p></div><div className="p-4 bg-background rounded-lg text-center"><p className="text-muted-foreground text-sm">Power (P = VI)</p><p className="text-xl font-semibold text-foreground">{result.power} W</p></div></div>}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: '12V battery, 6Ω resistance', calculation: 'I = 12 / 6 = 2A, Power = 24W', result: 'Current is 2 Amperes, power is 24 Watts.' }} tips={['V = I × R', 'Power = V × I']} faqs={[{ question: "What is Ohm's Law?", answer: 'V = IR, relating voltage, current, and resistance.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
+          <CalculatorContent {...calculatorContent['ohms-law']} example={{ title: 'Example', scenario: '12V battery, 6Ω resistance', calculation: 'I = 12 / 6 = 2A, Power = 24W', result: 'Current is 2 Amperes, power is 24 Watts.' }} tips={['V = I × R', 'Power = V × I']} faqs={[{ question: "What is Ohm's Law?", answer: 'V = IR, relating voltage, current, and resistance.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Formulas</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>V = I × R</p><p>I = V / R</p><p>R = V / I</p><p>P = V × I</p></CardContent></Card></div>
       </div>

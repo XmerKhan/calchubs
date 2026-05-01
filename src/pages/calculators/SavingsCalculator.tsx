@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { PiggyBank, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const SavingsCalculator = () => {
   const [initialDeposit, setInitialDeposit] = useState('');
@@ -140,8 +141,7 @@ const SavingsCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['savings']}             example={{
               title: 'Real-Life Example',
               scenario: 'You start with $5,000 and save $500/month at 4.5% APY for 5 years.',
               calculation: 'Total deposits: $35,000. With compound interest: Final = $39,847',

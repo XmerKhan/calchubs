@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Superscript } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const PowerCalculator = () => {
   const [base, setBase] = useState('');
@@ -81,8 +82,7 @@ const PowerCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{ title: 'Example', scenario: '2^10 = ?', calculation: '2^10 = 1,024 (1 KB in computing)', result: '2 raised to power 10 equals 1,024.' }}
+          <CalculatorContent {...calculatorContent['power']}             example={{ title: 'Example', scenario: '2^10 = ?', calculation: '2^10 = 1,024 (1 KB in computing)', result: '2 raised to power 10 equals 1,024.' }}
             tips={['Any number^0 = 1', 'Negative exponents give fractions: x^(-n) = 1/x^n']}
             faqs={[{ question: 'What is a negative exponent?', answer: '2^(-3) = 1/(2^3) = 1/8 = 0.125' }]}
             relatedCalculators={[{ title: 'Square Root Calculator', href: '/math/square-root-calculator' }, { title: 'Percentage Calculator', href: '/math/percentage-calculator' }]}

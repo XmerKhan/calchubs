@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Battery } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const WorkEnergyCalculator = () => {
   const [force, setForce] = useState('');
@@ -40,7 +41,7 @@ const WorkEnergyCalculator = () => {
               {result && <div className="p-6 bg-secondary/50 rounded-lg animate-scale-in text-center"><p className="text-muted-foreground mb-2">Work Done</p><p className="text-5xl font-bold text-primary">{result.work} J</p><p className="text-sm text-muted-foreground mt-4"><strong>Formula:</strong> W = F × d</p></div>}
             </CardContent>
           </Card>
-          <CalculatorContent example={{ title: 'Example', scenario: 'Push with 100N force over 10m', calculation: 'W = 100 × 10 = 1,000 J', result: 'You did 1,000 Joules of work.' }} tips={['1 Joule = 1 Newton × 1 meter', 'Energy is conserved: PE + KE = constant']} faqs={[{ question: 'Work vs energy?', answer: 'Work is energy transfer; energy is capacity to do work.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
+          <CalculatorContent {...calculatorContent['work-energy']} example={{ title: 'Example', scenario: 'Push with 100N force over 10m', calculation: 'W = 100 × 10 = 1,000 J', result: 'You did 1,000 Joules of work.' }} tips={['1 Joule = 1 Newton × 1 meter', 'Energy is conserved: PE + KE = constant']} faqs={[{ question: 'Work vs energy?', answer: 'Work is energy transfer; energy is capacity to do work.' }]} relatedCalculators={[{ title: 'Force Calculator', href: '/advanced/force-calculator' }]} />
         </div>
         <div className="space-y-6"><Card className="bg-card border-border"><CardHeader><CardTitle className="text-foreground text-lg">Formulas</CardTitle></CardHeader><CardContent className="space-y-3 text-sm text-muted-foreground"><p>Work: W = F × d</p><p>Kinetic: KE = ½mv²</p><p>Potential: PE = mgh</p></CardContent></Card></div>
       </div>

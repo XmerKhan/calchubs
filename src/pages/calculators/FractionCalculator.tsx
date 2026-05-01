@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Divide } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const FractionCalculator = () => {
   const [num1, setNum1] = useState('');
@@ -158,8 +159,7 @@ const FractionCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['fraction']}             example={{
               title: 'Real-Life Example',
               scenario: 'You eat 1/4 of a pizza, then 2/8 more.',
               calculation: '1/4 + 2/8 = 8/32 + 8/32 = 16/32 = 1/2',

@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { TrendingUp, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
 import { CalculatorContent } from '@/components/calculator/CalculatorContent';
+import { calculatorContent } from '@/data/calculatorContent';
 
 const SimpleInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -117,8 +118,7 @@ const SimpleInterestCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent
-            example={{
+          <CalculatorContent {...calculatorContent['simple-interest']}             example={{
               title: 'Real-Life Example',
               scenario: 'You deposit $10,000 at 5% simple interest for 3 years.',
               calculation: 'SI = (10000 × 5 × 3) / 100 = $1,500',
