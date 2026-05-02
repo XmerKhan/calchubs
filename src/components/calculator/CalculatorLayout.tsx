@@ -1,6 +1,16 @@
 import { ReactNode } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
+import { CalculatorRichSection } from './CalculatorRichSection';
+
+// Map URL slug → deepContent key
+const slugMap: Record<string, string> = {
+  'bmi-calculator': 'bmi',
+  'age-calculator': 'age',
+  'force-calculator': 'force',
+  'percentage-calculator': 'percentage',
+  'speed-calculator': 'speed',
+};
 
 interface BreadcrumbItem {
   label: string;
@@ -20,6 +30,7 @@ export const CalculatorLayout = ({
   description,
   breadcrumbs,
 }: CalculatorLayoutProps) => {
+  const location = useLocation();
   return (
     <div className="min-h-screen py-8">
       <div className="container">
@@ -50,6 +61,13 @@ export const CalculatorLayout = ({
         </div>
 
         {children}
+
+        {(() => {
+          const path = location.pathname.replace(/\/$/, '');
+          const last = path.split('/').pop() ?? '';
+          const slug = slugMap[last] ?? last.replace(/-calculator$/, '');
+          return <CalculatorRichSection slug={slug} toolName={title} shortDescription={description} />;
+        })()}
       </div>
     </div>
   );
