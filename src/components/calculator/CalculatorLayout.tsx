@@ -30,6 +30,7 @@ export const CalculatorLayout = ({
   description,
   breadcrumbs,
 }: CalculatorLayoutProps) => {
+  const location = useLocation();
   return (
     <div className="min-h-screen py-8">
       <div className="container">
