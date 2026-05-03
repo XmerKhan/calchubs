@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { Canonical } from '@/components/seo/Canonical';
 
 interface LayoutProps {
   children: ReactNode;
@@ -11,6 +12,7 @@ interface LayoutProps {
 export const Layout = ({ children, isDark, toggleTheme }: LayoutProps) => {
   return (
     <div className="flex min-h-screen flex-col">
+      <Canonical />
       <Header isDark={isDark} toggleTheme={toggleTheme} />
       <main className="flex-1">{children}</main>
       <Footer />
