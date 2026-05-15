@@ -33,21 +33,21 @@ const CategoryPage = () => {
         <title>{category.title} - Free Online Tools | Vidify Calculators</title>
         <meta name="description" content={`${category.description} Use our free ${category.title.toLowerCase()} for accurate results.`} />
         <meta name="keywords" content={`${category.title.toLowerCase()}, free calculators, online tools, ${category.calculators.map(c => c.title.toLowerCase()).join(', ')}`} />
-        <link rel="canonical" href={`https://calchub.com${category.href}`} />
+        <link rel="canonical" href={`https://vidify.site${category.href}`} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": category.title,
             "description": category.description,
-            "url": `https://calchub.com${category.href}`,
+            "url": `https://vidify.site${category.href}`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": category.calculators.map((calc, index) => ({
                 "@type": "ListItem",
                 "position": index + 1,
                 "name": calc.title,
-                "url": `https://calchub.com${calc.href}`
+                "url": `https://vidify.site${calc.href}`
               }))
             }
           })}
