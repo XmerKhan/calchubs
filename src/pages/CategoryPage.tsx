@@ -40,14 +40,14 @@ const CategoryPage = () => {
             "@type": "CollectionPage",
             "name": category.title,
             "description": category.description,
-            "url": `https://calchub.com${category.href}`,
+            "url": `https://vidify.site${category.href}`,
             "mainEntity": {
               "@type": "ItemList",
               "itemListElement": category.calculators.map((calc, index) => ({
                 "@type": "ListItem",
                 "position": index + 1,
                 "name": calc.title,
-                "url": `https://calchub.com${calc.href}`
+                "url": `https://vidify.site${calc.href}`
               }))
             }
           })}
