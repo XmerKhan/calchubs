@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Wallet, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { EMICharts } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const EMICalculator = () => {
   const [principal, setPrincipal] = useState('');
