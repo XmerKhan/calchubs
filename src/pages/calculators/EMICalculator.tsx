@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Wallet, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { EMICharts } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const EMICalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -163,37 +164,21 @@ const EMICalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['emi']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'Sarah takes a car loan of $25,000 at 7% annual interest for 5 years (60 months).',
-              calculation: 'P = $25,000, R = 7%/12 = 0.583%, N = 60 months\nEMI = [25000 × 0.00583 × (1.00583)^60] / [(1.00583)^60 - 1] = $495.03',
-              result: 'Sarah will pay $495.03 monthly. Total interest: $4,702, Total payment: $29,702',
-            }}
-            tips={[
-              'A longer tenure reduces EMI but increases total interest paid.',
-              'Consider making prepayments to reduce your total interest burden.',
-              'Compare interest rates from multiple lenders before taking a loan.',
-              'Factor in processing fees and other charges in your total cost calculation.',
-            ]}
-            faqs={[
-              {
-                question: 'What does EMI stand for?',
-                answer: 'EMI stands for Equated Monthly Installment. It is a fixed payment amount made by a borrower to a lender at a specified date each calendar month.',
-              },
-              {
-                question: 'Does EMI include interest?',
-                answer: 'Yes, EMI includes both principal repayment and interest. Initially, a larger portion goes toward interest, gradually shifting to principal over time.',
-              },
-              {
-                question: 'Can I reduce my EMI amount?',
-                answer: 'You can reduce EMI by increasing the loan tenure, making a larger down payment, or negotiating a lower interest rate.',
-              },
-            ]}
-            relatedCalculators={[
-              { title: 'Loan Calculator', href: '/finance/loan-calculator' },
-              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
-            ]}
+          {result && (
+            <EMICharts
+              principal={parseFloat(principal)}
+              annualRatePct={parseFloat(rate)}
+              tenureMonths={parseFloat(tenure)}
+              totalInterest={result.totalInterest}
+              emi={result.emi}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the EMI Calculator"
+            content={financeExplainerContent['emi']}
           />
+
         </div>
 
         <div className="space-y-6">
