@@ -6,8 +6,9 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { LineChart, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { CompoundInterestChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const CompoundInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -146,25 +147,18 @@ const CompoundInterestCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['compound-interest']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You invest $10,000 at 7% annual interest, compounded monthly for 10 years.',
-              calculation: 'A = 10000(1 + 0.07/12)^(12×10) = $20,096.61',
-              result: 'Your investment grows to $20,096.61. Total interest earned: $10,096.61',
-            }}
-            tips={[
-              'More frequent compounding leads to higher returns.',
-              'Start investing early to maximize compound growth.',
-              'Reinvest dividends for additional compounding.',
-            ]}
-            faqs={[
-              { question: 'What is compound interest?', answer: 'Interest calculated on both initial principal and accumulated interest from previous periods.' },
-              { question: 'What is the Rule of 72?', answer: 'Divide 72 by your interest rate to estimate years to double your money.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Simple Interest Calculator', href: '/finance/simple-interest-calculator' },
-              { title: 'Investment Calculator', href: '/finance/investment-calculator' },
-            ]}
+          {result && (
+            <CompoundInterestChart
+              principal={parseFloat(principal)}
+              annualRatePct={parseFloat(rate)}
+              years={parseFloat(time)}
+              compoundsPerYear={parseFloat(frequency)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Compound Interest Calculator"
+            content={financeExplainerContent['compound-interest']}
           />
         </div>
 

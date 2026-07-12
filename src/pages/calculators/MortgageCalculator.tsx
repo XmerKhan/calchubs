@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Home, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { MortgageCharts } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const MortgageCalculator = () => {
   const [homePrice, setHomePrice] = useState('');
@@ -151,25 +152,17 @@ const MortgageCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['mortgage']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You buy a $350,000 home with 20% down ($70,000) at 6.5% interest for 30 years.',
-              calculation: 'Loan = $280,000, Monthly payment = $1,770.09',
-              result: 'Total payment over 30 years: $637,233. Total interest: $357,233',
-            }}
-            tips={[
-              'A 20% down payment helps avoid PMI.',
-              'Compare 15-year vs 30-year terms.',
-              'Shop around with multiple lenders.',
-            ]}
-            faqs={[
-              { question: 'What is PMI?', answer: 'Private Mortgage Insurance is required when down payment is less than 20%.' },
-              { question: 'Fixed vs adjustable rate?', answer: 'Fixed rate stays the same; adjustable can change after initial period.' },
-            ]}
-            relatedCalculators={[
-              { title: 'EMI Calculator', href: '/finance/emi-calculator' },
-              { title: 'Loan Calculator', href: '/finance/loan-calculator' },
-            ]}
+          {result && (
+            <MortgageCharts
+              loanAmount={result.loanAmount}
+              annualRatePct={parseFloat(rate)}
+              years={parseFloat(years)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Mortgage Calculator"
+            content={financeExplainerContent['mortgage']}
           />
         </div>
 

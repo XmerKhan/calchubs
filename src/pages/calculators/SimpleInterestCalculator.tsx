@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { SimpleVsCompoundChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const SimpleInterestCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -118,25 +119,17 @@ const SimpleInterestCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['simple-interest']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You deposit $10,000 at 5% simple interest for 3 years.',
-              calculation: 'SI = (10000 × 5 × 3) / 100 = $1,500',
-              result: 'You earn $1,500 in interest. Total: $11,500',
-            }}
-            tips={[
-              'Simple interest is best for short-term loans.',
-              'Interest is calculated only on the original principal.',
-              'Compare with compound interest for long-term investments.',
-            ]}
-            faqs={[
-              { question: 'What is simple interest?', answer: 'Interest calculated only on the initial principal, not on accumulated interest.' },
-              { question: 'When is simple interest used?', answer: 'Common for short-term loans, auto loans, and some personal loans.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
-              { title: 'Savings Calculator', href: '/finance/savings-calculator' },
-            ]}
+          {result && (
+            <SimpleVsCompoundChart
+              principal={parseFloat(principal)}
+              annualRatePct={parseFloat(rate)}
+              years={parseFloat(time)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Simple Interest Calculator"
+            content={financeExplainerContent['simple-interest']}
           />
         </div>
 
