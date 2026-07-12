@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { BarChart3, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { InflationChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const InflationCalculator = () => {
   const [currentAmount, setCurrentAmount] = useState('');
@@ -126,25 +127,17 @@ const InflationCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['inflation']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You have $100,000 today with 3% annual inflation over 10 years.',
-              calculation: 'Future Value needed = $134,392. Purchasing power drops to $74,409',
-              result: 'You need $134,392 in 10 years to buy what $100,000 buys today.',
-            }}
-            tips={[
-              'Historical US inflation averages 2-3% annually.',
-              'Investments should outpace inflation.',
-              'Consider inflation when planning retirement.',
-            ]}
-            faqs={[
-              { question: 'What causes inflation?', answer: 'Money supply growth, demand exceeding supply, rising costs.' },
-              { question: 'How to protect against inflation?', answer: 'Invest in stocks, real estate, TIPS, and I-Bonds.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
-              { title: 'Retirement Calculator', href: '/finance/retirement-calculator' },
-            ]}
+          {result && (
+            <InflationChart
+              amount={parseFloat(currentAmount)}
+              annualRatePct={parseFloat(inflationRate)}
+              years={parseFloat(years)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Inflation Calculator"
+            content={financeExplainerContent['inflation']}
           />
         </div>
 

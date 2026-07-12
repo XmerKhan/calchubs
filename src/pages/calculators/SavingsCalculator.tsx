@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { PiggyBank, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { SavingsChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const SavingsCalculator = () => {
   const [initialDeposit, setInitialDeposit] = useState('');
@@ -141,25 +142,18 @@ const SavingsCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['savings']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You start with $5,000 and save $500/month at 4.5% APY for 5 years.',
-              calculation: 'Total deposits: $35,000. With compound interest: Final = $39,847',
-              result: 'After 5 years, you have $39,847. Interest earned: $4,847',
-            }}
-            tips={[
-              'Set up automatic transfers to ensure consistent saving.',
-              'Even small regular deposits add up over time.',
-              'Look for high-yield savings accounts.',
-            ]}
-            faqs={[
-              { question: 'What is APY?', answer: 'Annual Percentage Yield includes compound interest effects.' },
-              { question: 'How much should I save?', answer: 'The 50/30/20 rule suggests 20% for savings and debt.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
-              { title: 'Retirement Calculator', href: '/finance/retirement-calculator' },
-            ]}
+          {result && (
+            <SavingsChart
+              initial={parseFloat(initialDeposit) || 0}
+              monthly={parseFloat(monthlyDeposit) || 0}
+              annualRatePct={parseFloat(rate)}
+              years={parseFloat(years)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Savings Calculator"
+            content={financeExplainerContent['savings']}
           />
         </div>
 

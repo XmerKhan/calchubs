@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { TrendingUp, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { InvestmentChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const InvestmentCalculator = () => {
   const [initialInvestment, setInitialInvestment] = useState('');
@@ -141,25 +142,18 @@ const InvestmentCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['investment']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'You invest $10,000 initially and add $500/month at 8% return for 20 years.',
-              calculation: 'Total invested: $130,000. With compound growth: $344,392',
-              result: 'After 20 years, your portfolio is worth $344,392. Returns: $214,392',
-            }}
-            tips={[
-              'Start investing early - time in market beats timing.',
-              'Diversify across asset classes.',
-              'Consider low-cost index funds.',
-            ]}
-            faqs={[
-              { question: 'What is a realistic return?', answer: 'S&P 500 historically returns about 10% annually before inflation.' },
-              { question: 'Lump sum or monthly?', answer: 'Lump sum often outperforms, but monthly reduces timing risk.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Retirement Calculator', href: '/finance/retirement-calculator' },
-              { title: 'Compound Interest Calculator', href: '/finance/compound-interest-calculator' },
-            ]}
+          {result && (
+            <InvestmentChart
+              initial={parseFloat(initialInvestment) || 0}
+              monthly={parseFloat(monthlyContribution) || 0}
+              returnPct={parseFloat(expectedReturn)}
+              years={parseFloat(years)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Investment Calculator"
+            content={financeExplainerContent['investment']}
           />
         </div>
 

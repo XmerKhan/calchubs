@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Building2, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { LoanCharts } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const LoanCalculator = () => {
   const [principal, setPrincipal] = useState('');
@@ -211,36 +212,17 @@ const LoanCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['loan']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'The Smiths are buying a home for $300,000 with a 20% down payment, resulting in a $240,000 mortgage at 6.5% for 30 years.',
-              calculation: 'P = $240,000, R = 6.5%/12 = 0.542%, N = 360 months\nMonthly = [240000 × 0.00542 × (1.00542)^360] / [(1.00542)^360 - 1] = $1,517',
-              result: 'Monthly payment: $1,517. Over 30 years, they will pay $306,108 in interest, totaling $546,108.',
-            }}
-            tips={[
-              'A 15-year loan has higher monthly payments but saves significantly on interest.',
-              'Even small extra payments can reduce your loan term substantially.',
-              'Consider refinancing if interest rates drop significantly.',
-              'Keep your total housing costs below 28% of gross monthly income.',
-            ]}
-            faqs={[
-              {
-                question: 'What is amortization?',
-                answer: 'Amortization is the process of paying off debt over time through regular payments. Each payment covers both interest and principal, with the interest portion decreasing over time.',
-              },
-              {
-                question: 'Should I choose a 15-year or 30-year loan?',
-                answer: '15-year loans have higher monthly payments but lower interest rates and much less total interest. 30-year loans offer lower monthly payments but cost more overall.',
-              },
-              {
-                question: 'How do extra payments affect my loan?',
-                answer: 'Extra payments go directly toward principal, reducing the balance faster and saving interest. Even one extra payment per year can cut years off your loan.',
-              },
-            ]}
-            relatedCalculators={[
-              { title: 'EMI Calculator', href: '/finance/emi-calculator' },
-              { title: 'Mortgage Calculator', href: '/finance/mortgage-calculator' },
-            ]}
+          {result && (
+            <LoanCharts
+              principal={parseFloat(principal)}
+              annualRatePct={parseFloat(rate)}
+              years={parseFloat(years)}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Loan Calculator"
+            content={financeExplainerContent['loan']}
           />
         </div>
 

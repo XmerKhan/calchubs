@@ -5,8 +5,9 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Target, DollarSign, Percent, Calendar } from 'lucide-react';
 import { CalculatorLayout } from '@/components/calculator/CalculatorLayout';
-import { CalculatorContent } from '@/components/calculator/CalculatorContent';
-import { calculatorContent } from '@/data/calculatorContent';
+import { FinanceExplainer } from '@/components/calculator/FinanceExplainer';
+import { RetirementChart } from '@/components/calculator/FinanceCharts';
+import { financeExplainerContent } from '@/data/financeExplainerContent';
 
 const RetirementCalculator = () => {
   const [currentAge, setCurrentAge] = useState('');
@@ -160,25 +161,20 @@ const RetirementCalculator = () => {
             </CardContent>
           </Card>
 
-          <CalculatorContent {...calculatorContent['retirement']}             example={{
-              title: 'Real-Life Example',
-              scenario: 'A 30-year-old with $50,000 saved contributes $1,000/month at 7% until 65.',
-              calculation: '35 years of saving. With compound growth: $1,847,520',
-              result: 'At 65, you have $1.85M. Using 4% rule: $6,158/month withdrawal.',
-            }}
-            tips={[
-              'Start early - compound growth is powerful.',
-              'Maximize employer 401k matching.',
-              'Increase contributions with raises.',
-            ]}
-            faqs={[
-              { question: 'What is the 4% rule?', answer: 'Withdraw 4% annually to make savings last 30 years.' },
-              { question: 'How much do I need?', answer: 'Common rule: 25x your annual expenses.' },
-            ]}
-            relatedCalculators={[
-              { title: 'Investment Calculator', href: '/finance/investment-calculator' },
-              { title: 'Savings Calculator', href: '/finance/savings-calculator' },
-            ]}
+          {result && (
+            <RetirementChart
+              currentAge={parseFloat(currentAge)}
+              retirementAge={parseFloat(retirementAge)}
+              currentSavings={parseFloat(currentSavings) || 0}
+              monthly={parseFloat(monthlyContribution) || 0}
+              returnPct={parseFloat(expectedReturn)}
+              retirementBalance={result.retirementBalance}
+            />
+          )}
+
+          <FinanceExplainer
+            title="Understanding the Retirement Calculator"
+            content={financeExplainerContent['retirement']}
           />
         </div>
 
